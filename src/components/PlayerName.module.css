@@ -1,0 +1,98 @@
+
+@keyframes fadeIn {
+    from {
+      opacity: 0; /* Start invisible */
+    }
+    to {
+      opacity: 1;
+      /* End visible */
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1; /* Start invisible */
+    }
+    to {
+      opacity: 0;
+      /* End visible */
+    }
+  }
+  
+
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*align-items: stretch; /* Ensure equal height for both divs */
+     /* Fill the width of the parent container */
+     /* Optional: Background color for visualization */
+    border-width: 100px;
+    border-color: #ffffff;
+     /* You can adjust the value to control the roundness */
+    
+    border-width: 10px;
+    z-index: 1000;
+    animation: fadeIn 3s forwards;
+    width: 100%;
+    position: relative;
+    
+}
+
+
+.info{
+     /* Allow the left div to grow and fill available space */
+    /* Optional: Background color for visualization */
+    display: flex;
+    padding: 10px; 
+    flex-direction: column;
+    color: #DFF8EB;
+   
+   
+}
+.infoDate{
+    /* Allow the left div to grow and fill available space */
+   /* Optional: Background color for visualization */
+  
+   
+   color: #b7b7b7;
+  
+}
+
+
+.info p {
+  
+  line-height: .7;
+  font-size: 1rem;
+  color: #DFF8EB;
+  
+}
+
+.info .name {
+    font-size: 1rem;
+    line-height: .9;
+    color: #DFF8EB;
+    
+}
+
+
+.btn {
+    /*margin-right: 10px;
+    
+    /*flex: 0 0 auto; /* Do not grow or shrink; maintain original size */
+    /* Optional: Background color for visualization */
+    display: flex;
+    border-radius: 10px;
+    padding: 5px;
+    height: 90%;
+  
+}
+
+
+  
+  .btn:hover {
+    background-color: #41c882; /* Darker shade on hover */
+    color:  #a2c4fb !important;
+  }
+
+

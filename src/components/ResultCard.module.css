@@ -1,0 +1,16 @@
+.resultCont{
+
+    background-color:  #364156 ;
+    height: 10%;
+    border-radius: 10px;
+    border-color: aliceblue;
+    min-width: 90%;
+    width: 90%;
+
+}
+
+.image{
+    border-radius: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
