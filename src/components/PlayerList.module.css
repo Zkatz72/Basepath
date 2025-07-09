@@ -8,8 +8,11 @@
     z-index: 1000;
    /* transition: opacity 1s ease, height 1s ease;*/
     position: absolute;
-    background-color: aliceblue;
+    background-color: rgb(92, 154, 207);
     width: 80%;
+    border: 1px solid #ffffff;
+
+
 }
 /*
 :root {

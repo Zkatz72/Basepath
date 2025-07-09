@@ -22,14 +22,22 @@ import { borderRadius, fontFamily, palette, useTheme } from '@mui/system'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useContext } from 'react';
 import SelectedPlayerContext from "./store/selected-player-context";
+import { PropaneSharp } from '@mui/icons-material';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function CompleteModal() {
+function CompleteModal(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isModalOpen, setModalOpen] = React.useState(true);
   const { prevPlayer, selectedPlayers, goalPlayer } = useContext(SelectedPlayerContext);
+  const goalName = `${goalPlayer['firstName']} ${goalPlayer['lastName']} ${goalPlayer['suffix']}`
+  let shareString = ""
+  for(let base of selectedPlayers){
+    shareString += (base['result'][0] ? "🟩" : "🟥")
+  }
+  shareString += '\n' + "⚾️".repeat(selectedPlayers.length)
+
   const handleModalOpen = (event) => {
     setModalOpen(true)
   }
@@ -42,8 +50,8 @@ function CompleteModal() {
       position: 'relative',
   
       width: 400,
-      height: 400,
-      top: '25%',
+      height: 650,
+      top: '15%',
       bgcolor: theme.palette.primary.main,
       boxShadow: 24,
       borderRadius: 5,
@@ -58,21 +66,106 @@ function CompleteModal() {
         onClose={handleModalClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-       
         closeAfterTransition
-        style={{display:'flex',justifyContent:'center',justifyContent:'center'}}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          justifyContent: "center",
+        }}
       >
         <Slide direction="up" in={isModalOpen} mountOnEnter unmountOnExit>
-        <Box sx = {style}>
-          <Box sx = {{paddingBottom:'10px'}} justifyContent= 'space-between' alignItems = "center" flexDirection='row' display={'flex'}  >
-            
-            <Typography sx = {{marginLeft: '20%', textAlign: 'center', color: 'white', fontFamily:'Figtree'}} id="modal-modal-title" variant="h5" component="h5">
-              {`Congrats, you connected ${goalPlayer['firstName']}`}
+          <Box sx={style}>
+            <Box
+              sx={{
+                position: "relative",
+                paddingBottom: "10px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  color: "white",
+                  fontFamily: "Figtree",
+                }}
+                id="modal-modal-title"
+                variant="h5"
+                component="h5"
+              >
+                SAFE!
+              </Typography>
+
+              <IconButton
+                size="small"
+                onClick={handleModalClose}
+                sx={{
+                  position: "absolute",
+                  right: 8,
+                  color: "white",
+                }}
+                aria-label="close"
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
+            <Box sx={{ paddingBottom: "10px" }}>
+              <Typography
+  sx={{ color: "white", fontFamily: "Figtree" }}
+  variant="h9"
+  component="h9"
+>
+  You successfully connected{" "}
+  <Box component="span" sx={{ fontWeight: "bold" }}>
+    {prevPlayer.firstName} {prevPlayer.lastName} {prevPlayer.suffix}
+  </Box>{" "}
+  to{" "}
+  <Box component="span" sx={{ fontWeight: "bold" }}>
+    {goalName.trim()}
+  </Box>
+  !
+</Typography>
+            </Box>
+           <Box sx={{ paddingBottom: "10px" }}>
+            <Typography
+              sx={{ color: "white", fontFamily: "Figtree"}}
+              variant="h9"
+              component="h9"
+            >
+              {`You did it in ${selectedPlayers.length} total bases!`}
+              
             </Typography>
-            <IconButton size="small" onClick = {handleModalClose} style = {{}}color="white"  aria-label="add an alarm">
-                <CloseIcon/>
-            </IconButton>
+
+           </Box>
+            <Box sx={{ paddingBottom: "10px" }}>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  color: "white",
+                  fontFamily: "Figtree",
+                }}
+                id="modal-modal-title"
+                variant="h5"
+                component="h5"
+              >
+                <u>Your Path</u>
+              </Typography>
+            </Box>
+            <Typography
+              sx={{ color: "white", fontFamily: "Figtree" }}
+              variant="h9"
+              component="h9"
+            >
+              <Box sx={{ color: "white", fontFamily: "Figtree" }}>
+            <ol>
+              {[{...prevPlayer, result: [1,null]},...selectedPlayers,{...goalPlayer, result: [2,null]}].map((item, index) => (
+                <li key={index}>{`${item['firstName']} ${item['lastName']} ${item['suffix']} ${item['result'][0] === true ? "✅" : (item['result'][0] === 1 ? "🟢" : (item['result'][0] === 2 ? "🏁" :"❌"))}`}</li>
+              ))}
+            </ol>
           </Box>
+              
+            </Typography>
           </Box>
         </Slide>
       </Modal>

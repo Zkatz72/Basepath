@@ -24,7 +24,7 @@ const {player,selectPlayer, unselectPlayer} = useContext(SelectedPlayerContext)
           }}
           >
             {props.player['name']}
-          </Typography>
+          </Typography >
          {props.children}
 
 

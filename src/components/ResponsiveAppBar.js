@@ -96,13 +96,13 @@ function ResponsiveAppBar() {
                 sx={{
                   textAlign: "center",
                   color: "white",
-                  fontFamily: "Figtree",
+                  fontFamily: "Roboto",
                 }}
                 id="modal-modal-title"
                 variant="h5"
                 component="h5"
               >
-                About BasePath
+                <u>About BasePath</u>
               </Typography>
 
               <IconButton
@@ -139,9 +139,9 @@ function ResponsiveAppBar() {
                 variant="h5"
                 component="h5"
               >
-                How To Play
+                <u>How to Play</u>
               </Typography>
-            </Box>
+            
             <Typography
               sx={{ color: "white", fontFamily: "Figtree" }}
               variant="h9"
@@ -156,6 +156,7 @@ function ResponsiveAppBar() {
               Just make sure to enter the goal player's name once you think you're rounding home!
               
             </Typography>
+            </Box>
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
                 sx={{
@@ -167,9 +168,9 @@ function ResponsiveAppBar() {
                 variant="h5"
                 component="h5"
               >
-                Notes
+                <u>Notes</u>
               </Typography>
-            </Box>
+            
             <Typography
               sx={{ color: "white", fontFamily: "Figtree" }}
               variant="h9"
@@ -186,13 +187,14 @@ function ResponsiveAppBar() {
               </ul>
               
             </Typography>
+            </Box>
           </Box>
         </Slide>
       </Modal>
       <AppBar
         position="fixed"
         sx={{
-          borderBottom: "1px solid #0f0f0f",
+          borderBottom: "1px solid #7777777",
           bgcolor: theme.palette.primary.main,
           backgroundImage: "none",
           boxShadow: "none",
@@ -211,9 +213,9 @@ function ResponsiveAppBar() {
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
-                fontFamily: "Figtree",
+                fontFamily: "Roboto",
                 fontWeight: 700,
-                letterSpacing: ".2rem",
+                letterSpacing: "0rem",
                 color: "inherit",
                 textDecoration: "none",
               }}
@@ -247,9 +249,9 @@ function ResponsiveAppBar() {
                 mr: 2,
                 display: { xs: "flex", md: "none" },
                 flexGrow: 1,
-                fontFamily: "Figtree",
+                fontFamily: "Roboto",
                 fontWeight: 700,
-                letterSpacing: ".2rem",
+                letterSpacing: "0rem",
                 color: "inherit",
                 textDecoration: "none",
               }}

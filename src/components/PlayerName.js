@@ -18,9 +18,9 @@ function PlayerName(props) {
     alignItems: "center",
     justifyContent: "space-between",
     display: { xs: "flex", md: "flex" },
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     '&:hover':{
-        backgroundColor:theme.palette.tertiary.main
+        backgroundColor:theme.palette.secondary.main
     }
   };
   const BootstrapButton = styled(Button)({
@@ -34,6 +34,7 @@ function PlayerName(props) {
     flex:3,
     backgroundColor: theme.palette.quartenary.main,
     borderRadius: '10px',
+    
     color: theme.palette.primary.main,
     fontFamily: [
       'Figtree'

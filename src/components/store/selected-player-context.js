@@ -8,7 +8,8 @@ const SelectedPlayerContext = createContext({
   setPrevPlayer: () => {},
   isComplete: null,
   setGoalPlayer: () => {},
-  goalPlayer: null
+  goalPlayer: null,
+  curPlayer: null
   
 });
 
@@ -73,7 +74,8 @@ export function SelectedPlayerContextProvider(props) {
     setPrevPlayer: selectPrevPlayer,
     isComplete: completed,
     setGoalPlayer: selectGoalPlayer,
-    goalPlayer: goal
+    goalPlayer: goal,
+    curPlayer: currentPlayer
   };
 
   return (

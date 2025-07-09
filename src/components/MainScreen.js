@@ -2,19 +2,26 @@ import { useContext } from "react";
 import SelectedPlayerContext from "./store/selected-player-context";
 import PlayerSearch from "./PlayerSearch";
 import classes from "./MainScreen.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
-import { Toolbar } from "@mui/material";
+import { Toolbar, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import theme from "./ui/theme";
 import Divider from '@mui/material/Divider';
 import { useTheme } from "@mui/material";
 import PlayerCard from "./PlayerCard";
 import CompleteModal from "./CompleteModal";
+import Button from '@mui/material/Button';
 let guesses = 4
 function MainScreen(props) {
-  const { prevPlayer, selectedPlayers, selectPlayer, setPrevPlayer, isComplete, setGoalPlayer } = useContext(SelectedPlayerContext);
+  const { prevPlayer, selectedPlayers, selectPlayer, setPrevPlayer, isComplete, setGoalPlayer, curPlayer } = useContext(SelectedPlayerContext);
+  const curPlayerName = `${props.curPlayer['firstName']} ${props.curPlayer['lastName']} ${props.curPlayer['suffix']}`
+  const [tick, setTick] = useState(0);
+
+const forceRerender = () => {
+  setTick((prev) => prev + 1); // triggers rerender
   
+};
   console.log(selectedPlayers)
   console.log(isComplete)
   useEffect(() => {setPrevPlayer(props.curPlayer);setGoalPlayer(props.goalPlayer) }, []);
@@ -22,13 +29,33 @@ function MainScreen(props) {
   return (
     <>
 
-    {isComplete && <CompleteModal></CompleteModal>}
+    {isComplete && <CompleteModal key={tick}></CompleteModal>}
     <Box minHeight = '100vh' height='100%' bgcolor={theme.palette.primary.main}>
       <Toolbar></Toolbar>
-      <Box component="section" sx={{ width: '100%', p: 2, flexGrow: 1, zIndex:1000, flexDirection: 'column', bgcolor: theme.palette.primary.main, color: 'white', position: 'fixed', textAlign:'center' }}>
-        <b>Guesses: {selectedPlayers.length}</b>
-      </Box>
-      <Box component="section" sx={{ p: 2 }}>
+      <Box
+  component="section"
+  sx={{
+    width: '100%',
+    p: 0,
+    flexGrow: 1,
+    borderBottom: '.1px solid #777777',
+    zIndex: 1000,
+    display: 'flex',              // ✅ Add this
+    flexDirection: 'row',
+    bgcolor: theme.palette.primary.main,
+    color: 'white',
+    position: 'fixed',
+    textAlign: 'center',
+  }}
+>
+  <Box sx={{ p:1,flex: 1, border: '.1px solid #777777',}}>
+    <b>Total bases: {selectedPlayers.length}</b>
+  </Box>
+  <Box sx={{ p:1,flex: 1, border: '.1px solid #777777',}}>
+    <b>Outs: {selectedPlayers.length}</b>
+  </Box>
+</Box>
+      <Box component="section" sx={{ p: 1 }}>
         &nbsp;
       </Box>
       <div id = "starting-player">
@@ -46,25 +73,30 @@ function MainScreen(props) {
             );
           })}
       </div>
-      <Divider variant="middle" color = 'white' flexItem/>
+      {!isComplete && <Typography color="white" align="center">{`Can you name a player who has played with ${curPlayer != null ? curPlayer['name'].trim(): curPlayerName.trim()}?`}</Typography>}
       {!isComplete && <PlayerSearch players={props.players} />}
       {!isComplete && <Divider variant="middle" color = 'white' height = '2px' flexItem/>}
       
-      <div id = "ending-player">
+      <div id = "goal-section">
         <PlayerCard player={{'name': `${props.goalPlayer["firstName"]} ${props.goalPlayer["lastName"]} ${props.goalPlayer["suffix"]}` }} ></PlayerCard>
       
       </div>
-      <div>
-        {prevPlayer && (<p>Current Player: {`${prevPlayer['id']}`}</p>) }
-        
-      </div>
       
+      {isComplete &&
+      <Box alignItems='center' sx = {{marginTop: '30px', display: 'flex', flexDirection:'column', width:'100%', alignItems: 'center'}}>
+          
+          
+          <Button onClick = {()=>{forceRerender()}}sx = {{fontFamily:"Figtree", ":hover":{color:'primary'}}}variant="contained" color="secondary">
+          Summary
+        </Button>
 
-      {isComplete && <p>here</p>}
+
+        </Box>}
       </Box>
       
-      </>
       
+      </>
+
   );
 }
 
