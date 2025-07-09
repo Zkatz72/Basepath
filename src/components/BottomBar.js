@@ -28,7 +28,7 @@ export default function BottomAppBar() {
       <AppBar position="static"  sx={{ top: 'auto', bottom: 'auto', bgcolor:theme.palette.secondary.main, backgroundImage:'none' }}>
         <Toolbar>
             <Box flexGrow={1} textAlign={'center'} fontSize={'12px'}>
-                Created by Zachary Katz. All data provided by BaseballReference®
+                Created by <u>Zachary Katz</u>. All data provided by BaseballReference®.
             </Box>
         </Toolbar>
       </AppBar>

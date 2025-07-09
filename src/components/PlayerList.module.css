@@ -6,7 +6,7 @@
     border-bottom-right-radius: 10px;
     max-width: 500px;
     z-index: 1000;
-    transition: opacity 1s ease, height 1s ease;
+   /* transition: opacity 1s ease, height 1s ease;*/
     position: absolute;
     background-color: aliceblue;
     width: 80%;

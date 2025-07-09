@@ -7,23 +7,33 @@ import PlayerCard from "./PlayerCard";
 import Box from '@mui/material/Box'
 function ResultCard(props) {
 
-const {player,selectPlayer, unselectPlayer} = useContext(SelectedPlayerContext)
-  
-
+const {player,selectPlayer, unselectPlayer, prevPlayer} = useContext(SelectedPlayerContext)
+  console.log('here', props.correct)
+  const [correct, team, cur, checking] = props.result
   return (
         
         <PlayerCard player = {props.player}>
         
+        
         <Typography variant="h6" 
         sx = {{
           textAlign: 'center',
-          color:'white',
+          color:  correct ? "green" : "red",
           paddingTop: '.3rem',
           fontFamily: 'Roboto'
         }}
         >
-          {"Correct!"}
+          { correct ? "Correct!" : "Incorrect!"}
         </Typography>
+          
+        {team != null ?
+        (<Typography variant="h7" sx ={{color: "white"}}>
+          {`${checking} played with ${cur} on the ${team}`}
+
+        </Typography>) : (<Typography variant="h7" sx ={{color: "white"}}>
+          {`${checking} has never played on a team with ${cur}`}
+
+        </Typography>)}
         </PlayerCard>
         
   );

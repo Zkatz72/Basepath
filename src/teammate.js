@@ -24,15 +24,24 @@ function anyOverlappingDates(list1, list2) {
 }
 
 function teammate(playerAData, playerBData) {
-    
+    console.log('right here', playerAData, playerBData)
+    const ayears = Object.keys(playerAData)
+    .filter(key => !isNaN(key) && key.trim() !== '') // keep only numeric keys
+    .map(Number);
+    const byears = Object.keys(playerAData)
+    .filter(key => !isNaN(key) && key.trim() !== '') // keep only numeric keys
+    .map(Number);
+    const starta = Math.min(...ayears);
+    const enda = Math.max(...ayears);
+    const startb = Math.min(...byears);
+    const endb = Math.max(...byears);
+    let careerA = [starta, enda];
   
-    let careerA = [playerAData["start"], playerAData["end"]];
-  
-    let careerB = [playerBData["start"], playerBData["end"]];
+    let careerB = [startb, endb];
     let [start, end] = careerOverlap(careerA, careerB);
-    
+    console.log(start,end)
     if (start == -1) {
-      return false;
+      return [false,null];
     }
     for (let i = start; i <= end; i++) {
       let yearA = playerAData[i.toString()];
@@ -50,7 +59,7 @@ function teammate(playerAData, playerBData) {
             //check if any dates overlap
             if (anyOverlappingDates(yearB[team], yearA[team]))
             {
-              return true
+              return [true, team]
             }
             
           }
@@ -61,13 +70,13 @@ function teammate(playerAData, playerBData) {
             //check if any dates overlap
             if (anyOverlappingDates(yearB[team], yearA[team]))
             {
-              return true
+              return [true,team]
             }
           }
         }
       }
     }
-    return false
+    return [false,null]
   }
 
 function dateOverlap(range1, range2) {

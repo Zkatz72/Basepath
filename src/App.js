@@ -107,7 +107,7 @@ function App() {
     <Layout>
       <ResponsiveAppBar>
       </ResponsiveAppBar>
-      <MainScreen players={players} curPlayer = {data['otani-000sho']}/>
+      <MainScreen players={players} curPlayer = {data['otani-000sho']} goalPlayer = {data['otani-000sho']}/>
       <BottomAppBar></BottomAppBar>
     </Layout>
     </ThemeProvider>

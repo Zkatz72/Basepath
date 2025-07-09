@@ -52,7 +52,7 @@ function PlayerName(props) {
   });
   return (
     <>
-    <Fade in={true} timeout={500}>
+    
     <Box sx={namePlate}>
     
       <Box sx = { { flex:14, marginLeft: '10px'}}>
@@ -84,7 +84,6 @@ function PlayerName(props) {
        
     </Box>
     
-    </Fade>
     
     </>
   );

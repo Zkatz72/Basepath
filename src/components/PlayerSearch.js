@@ -67,7 +67,9 @@ function PlayerSearch(props) {
       let l = removeDiacritics(p["lastName"]);
       return regex.test(f) || regex.test(l) || regex.test(name);
     });
-
+    res.sort((a,b)=>(b["endYear"] - b["startYear"]) - (a["endYear"] - a["startYear"]))
+    res = res.slice(0, 50)
+    res.sort((a,b)=>(b['startYear']-a['startYear']))
     setSuggestions(res.slice(0, 50));
   }
 

@@ -1,9 +1,10 @@
 const {MongoClient} = require('mongodb')
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
 const localPath = process.env.PLAYER_INDEX_LOCAL_PATH
 const uri = 'mongodb://localhost:27017';
-const dbName = 'pcreg'; //PlayerConnect Register
+const dbName = 'bpreg'; //PlayerConnect Register
 const collectionName = 'players';
 
 async function insertData() {
@@ -21,7 +22,7 @@ async function insertData() {
         for (let letter = 97; letter <= 122; letter++) {
             const letterChar = String.fromCharCode(letter);
             const filePath = `${localPath}/players-${letterChar}.json`;
-
+            console.log(filePath)
             if (fs.existsSync(filePath)) {
                 const data = fs.readFileSync(filePath, 'utf8');
                 const players = JSON.parse(data);
