@@ -49,10 +49,10 @@ const forceRerender = () => {
   }}
 >
   <Box sx={{ p:1,flex: 1, border: '.1px solid #777777',}}>
-    <b>Total bases: {selectedPlayers.length}</b>
+    <b>Total bases: {selectedPlayers.filter((element, index, array) => {return element['result'][0]}).length}</b>
   </Box>
   <Box sx={{ p:1,flex: 1, border: '.1px solid #777777',}}>
-    <b>Outs: {selectedPlayers.length}</b>
+    <b>Outs: {selectedPlayers.filter((element, index, array) => {return element['result'][0] == false}).length}</b>
   </Box>
 </Box>
       <Box component="section" sx={{ p: 1 }}>
@@ -74,7 +74,7 @@ const forceRerender = () => {
           })}
       </div>
       {!isComplete && <Typography color="white" align="center">{`Can you name a player who has played with ${curPlayer != null ? curPlayer['name'].trim(): curPlayerName.trim()}?`}</Typography>}
-      {!isComplete && <PlayerSearch players={props.players} />}
+      {!isComplete && <PlayerSearch sTrie = {props.sTrie} nTrie = {props.nTrie}fTrie = {props.fTrie} lTrie = {props.lTrie} players={props.players} />}
       {!isComplete && <Divider variant="middle" color = 'white' height = '2px' flexItem/>}
       
       <div id = "goal-section">

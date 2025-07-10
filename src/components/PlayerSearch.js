@@ -9,11 +9,15 @@ import { scroller } from "react-scroll";
 import Divider from "@mui/material/Divider";
 import SearchIcon from "@mui/icons-material/Search";
 import { useTheme } from "@emotion/react";
+import Trie from "../structures/Trie";
 function PlayerSearch(props) {
   const [suggestions, setSuggestions] = useState([]);
   const searchRef = useRef(null);
   const [query, setQuery] = useState("");
   const [isListVisible, setListVisible] = useState(false);
+
+  
+  
   function searchSubmit(event) {
     event.preventDefault();
   }
@@ -40,14 +44,16 @@ function PlayerSearch(props) {
   }, [query]);
   const theme = useTheme();
   async function updateSuggestions() {
+    /*
     function removeDiacritics(str) {
       return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
-    let text = query;
+      */
+    let text = query.trim();
     const invalidCharsRegex = /[\\\^\$\*\+\?\.\(\)\|\[\]\{\}]/g;
 
-    text = text.replace(invalidCharsRegex, "");
-
+    text = text.replace(invalidCharsRegex, " ");
+    console.log(text)
     const regex = new RegExp(`^${text}`, "i");
 
     let res = [];
@@ -58,6 +64,12 @@ function PlayerSearch(props) {
     }
 
     let p = [];
+    let f = props.fTrie.getWithPrefix(text.toLowerCase())
+    
+    let l = props.lTrie.getWithPrefix(text.toLowerCase())
+    let n = props.nTrie.getWithPrefix(text.toLowerCase())
+    let s = props.sTrie.getWithPrefix(text.toLowerCase())
+    /*
     for (let f in props.players) {
       p.push(props.players[f]);
     }
@@ -67,10 +79,19 @@ function PlayerSearch(props) {
       let l = removeDiacritics(p["lastName"]);
       return regex.test(f) || regex.test(l) || regex.test(name);
     });
+  */
+    let seen = new Set();
+    res = [...f, ...l, ...n, ...s].filter((player) => {
+      let key = player.id || `${player.firstName}-${player.lastName}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
     res.sort((a,b)=>(b["endYear"] - b["startYear"]) - (a["endYear"] - a["startYear"]))
     res = res.slice(0, 50)
     res.sort((a,b)=>(b['startYear']-a['startYear']))
     setSuggestions(res.slice(0, 50));
+    
   }
 
   return (

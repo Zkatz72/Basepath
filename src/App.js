@@ -14,6 +14,7 @@ import { Toolbar } from "@mui/material";
 import BottomAppBar from "./components/BottomBar";
 import { ThemeProvider } from '@mui/material/styles';
 import {darkTheme, lightTheme} from './components/ui/theme'
+import Trie from "./structures/Trie";
 const start = 'trout-001mik'
 const end = 'otani-000sho'
 function App() {
@@ -100,14 +101,36 @@ function App() {
     //console.log(addedPlayers)
   }
     */
+   function removeDiacritics(str) {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+  let firstTrie = new Trie();
+  let lastTrie = new Trie();
+  let fullNameTrie = new Trie();
+  let suffixTrie = new Trie();
+  for (let id in data){
+    let player = data[id]
+    let fN = `${player['firstName']} ${player['lastName']} ${player['suffix']}`.trim()
+    let firstName = removeDiacritics(player['firstName'].toLowerCase())
+    let lastName = removeDiacritics(player['lastName'].toLowerCase())
+    let fullName = removeDiacritics(fN.toLowerCase())
+    let suffix= removeDiacritics(player['suffix'].toLowerCase())
+    
+    firstTrie.insert(firstName, player)
+    lastTrie.insert(lastName, player)
+    fullNameTrie.insert(fullName, player)
+    suffixTrie.insert(suffix, player)
+
+    
+  }
   const theme = darkMode ? darkTheme : lightTheme;
   return (
 
     <ThemeProvider theme = {theme}>
-    <Layout>
+    <Layout >
       <ResponsiveAppBar>
       </ResponsiveAppBar>
-      <MainScreen players={players} curPlayer = {data['otani-000sho']} goalPlayer = {data['otani-000sho']}/>
+      <MainScreen nTrie = {fullNameTrie} sTrie = {suffixTrie} fTrie ={firstTrie} lTrie = {lastTrie}  players={players} curPlayer = {data['otani-000sho']} goalPlayer = {data['otani-000sho']}/>
       <BottomAppBar></BottomAppBar>
     </Layout>
     </ThemeProvider>
