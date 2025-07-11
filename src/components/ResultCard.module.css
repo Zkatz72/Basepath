@@ -10,7 +10,9 @@
 }
 
 .image{
-    border-radius: 10%;
+    border-radius: 20%;
     padding-top: 10px;
     padding-bottom: 10px;
+    width:100px;
+    height:160px;
 }

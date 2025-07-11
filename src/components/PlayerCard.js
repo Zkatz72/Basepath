@@ -4,21 +4,33 @@ import SelectedPlayerContext from "./store/selected-player-context";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
+import { useTheme } from "@mui/material";
 function PlayerCard(props) {
 
 const {player,selectPlayer, unselectPlayer} = useContext(SelectedPlayerContext)
-  
-
+  const theme = useTheme();
+  console.log('kdfhskdsk', props.img)
   return (
+
+        <Box alignItems='center' sx = {{paddingTop:'10px', display: 'flex', flexDirection:'column', width:'100%', alignItems: 'center', marginBottom:'10px'} }>
+          
+          <Box
+          textAlign={"center"}
+  alignItems="center"
+  bgcolor={""}
+  sx={{
+    width:'60%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     
-        <Box alignItems='center' sx = {{display: 'flex', flexDirection:'column', width:'100%', alignItems: 'center'}}>
-          
-          
-          <img className = {classes.image} src = "https://placehold.co/100x150"></img>
+  }}
+>
+          <img className = {classes.image} src = {`images/${props.img}.jpg`}></img>
           <Typography variant="h5" 
           sx = {{
             textAlign: 'center',
-            color:'white',
+            color:theme.palette.text.main,
             paddingTop: '.3rem',
             fontFamily: 'Roboto'
           }}
@@ -27,7 +39,7 @@ const {player,selectPlayer, unselectPlayer} = useContext(SelectedPlayerContext)
           </Typography >
          {props.children}
 
-
+          </Box>
         </Box>
     
   );

@@ -10,7 +10,7 @@ export const darkTheme = createTheme({
             main: '#142433',
         },
         secondary: {
-            main: '#223e5b',
+            main: '#223e58',
         },
         tertiary:{
             main:'#4C7193'
@@ -22,10 +22,28 @@ export const darkTheme = createTheme({
             main:'#ffa06c'
         },
         error: {
-            main: red.A400,
+            main: '#cb7b7b',
+        },
+        success: {
+            main: '#7bcb7b',
         },
         sextary: {
             main: '#000',
+        },
+        text:{
+            main:'#fff'
+        },
+        bar:{
+            main:'#fff'
+        },
+        icon:{
+            main:'#fff'
+        },
+        bord:{
+            main:'#fff'
+        },
+        infor:{
+            main:'#808080'
         }
     },
 });
@@ -35,25 +53,40 @@ export const lightTheme = createTheme({
     palette: {
         mode: 'light',
         primary: {
-            main: '#142433',
+            main: '#fff',
         },
         secondary: {
-            main: '#223e5b',
+            main: '#e6e6e6',
         },
         tertiary:{
             main:'#4c7193'
         },
         quartenary:{
-            main:'#fff86e'
+            main:'#45864a'
         },
         quinary:{
-            main:'#fffabb'
+            main:'#56a85d'
         },
-        error: {
-            main: red.A400,
-        },
+       
         sextary: {
             main: '#142433',
+        },
+        text:{
+            main:'#000'
+        },
+        bar:{
+            main:'#000'
+        },
+        icon:{
+            main:'#808080'
+        },
+        bord:{
+            main:'#000'}
+        ,
+        infor:{
+            main:'#808080'
         }
+
+        
     },
 });

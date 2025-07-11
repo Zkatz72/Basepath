@@ -8,7 +8,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import CloseIcon from "@mui/icons-material/Close";
-import { Modal } from "@mui/material";
+import { Divider, Modal } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
@@ -18,6 +18,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Fade from "@mui/material/Fade";
 import SportsBaseballIcon from "@mui/icons-material/SportsBaseball";
+
+
 import {
   borderRadius,
   fontFamily,
@@ -33,7 +35,7 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isModalOpen, setModalOpen] = React.useState(false);
-
+  
   const handleModalOpen = (event) => {
     setModalOpen(true);
   };
@@ -55,6 +57,8 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
   const theme = useTheme();
+
+  const isDarkMode = theme.palette.mode === 'dark';
   const style = {
     position: "relative",
 
@@ -95,7 +99,7 @@ function ResponsiveAppBar() {
               <Typography
                 sx={{
                   textAlign: "center",
-                  color: "white",
+                  color: theme.palette.text.main,
                   fontFamily: "Roboto",
                 }}
                 id="modal-modal-title"
@@ -111,7 +115,7 @@ function ResponsiveAppBar() {
                 sx={{
                   position: "absolute",
                   right: 8,
-                  color: "white",
+                  color: theme.palette.icon.main
                 }}
                 aria-label="close"
               >
@@ -120,7 +124,7 @@ function ResponsiveAppBar() {
             </Box>
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
-                sx={{ color: "white", fontFamily: "Figtree" }}
+                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
                 variant="h9"
                 component="h9"
               >
@@ -132,8 +136,8 @@ function ResponsiveAppBar() {
               <Typography
                 sx={{
                   textAlign: "center",
-                  color: "white",
-                  fontFamily: "Figtree",
+                  color: theme.palette.text.main,
+                  fontFamily: "Roboto",
                 }}
                 id="modal-modal-title"
                 variant="h5"
@@ -143,17 +147,19 @@ function ResponsiveAppBar() {
               </Typography>
             
             <Typography
-              sx={{ color: "white", fontFamily: "Figtree" }}
+              sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
               variant="h9"
               component="h9"
             >
               The goal of BasePath is to travel from one player to another,
               using only <i>connected</i> players. Two players are{" "}
-              <i>connected</i> if they played together at any point in their
+              <i>connected</i> if they played together on the same team at any point in their
               career. <br></br>
               <br></br>There's no need to name the team they played for; just
               give us a teammate of the starting player and keep going!
               Just make sure to enter the goal player's name once you think you're rounding home!
+              <br></br><br/><b><u>Total bases:</u></b> Correct guesses.
+              <br/><b><u>Outs:</u></b> Incorrect guesses.
               
             </Typography>
             </Box>
@@ -161,8 +167,8 @@ function ResponsiveAppBar() {
               <Typography
                 sx={{
                   textAlign: "center",
-                  color: "white",
-                  fontFamily: "Figtree",
+                  color: theme.palette.text.main,
+                  fontFamily: "Roboto",
                 }}
                 id="modal-modal-title"
                 variant="h5"
@@ -172,7 +178,7 @@ function ResponsiveAppBar() {
               </Typography>
             
             <Typography
-              sx={{ color: "white", fontFamily: "Figtree" }}
+              sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
               variant="h9"
               component="h9"
             >
@@ -187,6 +193,15 @@ function ResponsiveAppBar() {
               </ul>
               
             </Typography>
+            <Divider color = {theme.palette.bar.main} sx={{ marginBottom: '10px' }} />
+            <Typography
+              sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+              variant="h9"
+              component="h9"
+            >
+              A new BasePath puzzle is available daily!
+              
+            </Typography>
             </Box>
           </Box>
         </Slide>
@@ -194,7 +209,12 @@ function ResponsiveAppBar() {
       <AppBar
         position="fixed"
         sx={{
-          borderBottom: "1px solid #7777777",
+          border:`.1px solid ${theme.palette.bord.main}`,
+          borderBottom:`.1px solid ${theme.palette.bord.main}`,
+          borderRight:'none',
+          borderLeft:'none',
+          borderTop:'none',
+          
           bgcolor: theme.palette.primary.main,
           backgroundImage: "none",
           boxShadow: "none",
@@ -202,9 +222,12 @@ function ResponsiveAppBar() {
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <SportsBaseballIcon
-              sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-            />
+            <Box
+  component="img"
+  src={isDarkMode?"dmIcon.svg":"lmIcon.svg"}
+  alt="My Icon"
+  sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, width: 64, height: 64 }}
+/>
             <Typography
               variant="h6"
               noWrap
@@ -230,16 +253,15 @@ function ResponsiveAppBar() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit"
+                color= {theme.palette.icon.main}
               ></IconButton>
             </Box>
-            <SportsBaseballIcon
-              sx={{
-                color: "white",
-                display: { xs: "flex", md: "none" },
-                mr: 1,
-              }}
-            />
+            <Box
+  component="img"
+  src={isDarkMode?"dmIcon.svg":"lmIcon.svg"}
+  alt="My Icon"
+  sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width: 60, height: 60 }}
+/>
             <Typography
               variant="h5"
               noWrap
@@ -264,7 +286,7 @@ function ResponsiveAppBar() {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="How to play">
                 <IconButton onClick={handleModalOpen} sx={{ p: 0 }}>
-                  <InfoOutlinedIcon sx={{ color: "white" }} />
+                  <InfoOutlinedIcon sx={{ color:theme.palette.icon.main}} />
                 </IconButton>
               </Tooltip>
             </Box>

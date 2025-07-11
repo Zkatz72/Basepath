@@ -27,8 +27,9 @@ function App() {
   const [dataReal, setData] = useState(null)
   const [dataReal2, setData2] = useState(null)
   const [teammateRes, setTeammateRes] = useState(null)
+  
   useLayoutEffect(() => {
-    document.body.style.backgroundColor = '#142433'
+    document.body.style.backgroundColor = '#000'
 });
   useEffect(() => {
     // Simulate data loading from the JSON file
@@ -130,7 +131,7 @@ function App() {
     <Layout >
       <ResponsiveAppBar>
       </ResponsiveAppBar>
-      <MainScreen nTrie = {fullNameTrie} sTrie = {suffixTrie} fTrie ={firstTrie} lTrie = {lastTrie}  players={players} curPlayer = {data['otani-000sho']} goalPlayer = {data['otani-000sho']}/>
+      <MainScreen nTrie = {fullNameTrie} sTrie = {suffixTrie} fTrie ={firstTrie} lTrie = {lastTrie}  players={players} curPlayer = {data['otani-000sho']} goalPlayer = {data['trout-001mik']}/>
       <BottomAppBar></BottomAppBar>
     </Layout>
     </ThemeProvider>

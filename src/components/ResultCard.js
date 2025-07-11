@@ -5,20 +5,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Typography from '@mui/material/Typography';
 import PlayerCard from "./PlayerCard";
 import Box from '@mui/material/Box'
+import { useTheme } from "@emotion/react";
 function ResultCard(props) {
 
 const {player,selectPlayer, unselectPlayer, prevPlayer} = useContext(SelectedPlayerContext)
-  console.log('here', props.correct)
+  console.log('here324', props.correct, props.img)
   const [correct, team, cur, checking] = props.result
+  const theme = useTheme();
   return (
         
-        <PlayerCard player = {props.player}>
+        <PlayerCard img = {props.img} player = {props.player}>
         
         
         <Typography variant="h6" 
         sx = {{
           textAlign: 'center',
-          color:  correct ? "green" : "red",
+          color:  correct ? theme.palette.success.main : theme.palette.error.main ,
           paddingTop: '.3rem',
           fontFamily: 'Roboto'
         }}
@@ -27,10 +29,10 @@ const {player,selectPlayer, unselectPlayer, prevPlayer} = useContext(SelectedPla
         </Typography>
           
         {team != null ?
-        (<Typography variant="h7" sx ={{color: "white"}}>
+        (<Typography variant="h7" sx ={{color: theme.palette.text.main}}>
           {`${checking} played with ${cur} on the ${team}`}
 
-        </Typography>) : (<Typography variant="h7" sx ={{color: "white"}}>
+        </Typography>) : (<Typography variant="h7" sx ={{color: theme.palette.text.main}}>
           {`${checking} has never played on a team with ${cur}`}
 
         </Typography>)}

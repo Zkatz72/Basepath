@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import Fade from '@mui/material/Fade';
 import Divider from '@mui/material/Divider';
+import { Padding } from "@mui/icons-material";
 function PlayerName(props) {
   const { player, selectPlayer, unselectPlayer } = useContext(
     SelectedPlayerContext
@@ -17,6 +18,8 @@ function PlayerName(props) {
     flexGrow: 1,
     alignItems: "center",
     justifyContent: "space-between",
+    paddingTop: '5px',
+    paddingBottom: '5px',
     display: { xs: "flex", md: "flex" },
     backgroundColor: theme.palette.primary.main,
     '&:hover':{
@@ -57,31 +60,27 @@ function PlayerName(props) {
     <Box sx={namePlate}>
     
       <Box sx = { { flex:14, marginLeft: '10px'}}>
-        <Box sx ={{color: '#DFF8EB'}}>
+        <Box sx ={{color: theme.palette.text.main}}>
             {props.name}
-            <Box sx = {{fontSize: '.8rem',color:'#b7b7b7'}}>
+            <Box sx = {{fontSize: '.8rem', color:theme.palette.infor.main}}>
                 {`${props.player["startYear"]}-${props.player["endYear"]}`}
             </Box>
         </Box>
       </Box>
-      
-        {player !== props.player ? (
-        <BootstrapButton onClick={() => {
+      <Button
+
+              onClick={() => {
             props.click();
             selectPlayer(props.player);
-          }}>Select</BootstrapButton>
-          
-        ) : (
-          <button
-            className="btn"
-            onClick={() => {
-              unselectPlayer();
-            }}
-            type="button"
-          >
-            Unselect
-          </button>
-        )}
+          }}
+              
+              sx={{ boxShadow: 'none', color: theme.palette.primary.main, width: '10%', marginRight: '10px', borderRadius: '5px', bgcolor: theme.palette.quartenary.main , textTransform: "none", fontFamily: "Roboto", ":hover": { bgcolor: theme.palette.quinary.main, boxShadow: 'none'} }}
+              variant="contained"
+              
+            >
+              Select
+            </Button>
+        
        
     </Box>
     

@@ -9,11 +9,14 @@ const SelectedPlayerContext = createContext({
   isComplete: null,
   setGoalPlayer: () => {},
   goalPlayer: null,
-  curPlayer: null
+  curPlayer: null,
+  restoreSelectedPlayers: ()=>{},
+  makeComplete: () => {}
   
 });
 
 export function SelectedPlayerContextProvider(props) {
+  const todayKey = new Date().toISOString().split('T')[0];
   const [selectedPlayers, setSelectedPlayers] = useState([])
   const [currentPlayer, setCurrentPlayer] = useState(null)
   const [completed, setCompleted] = useState(false)
@@ -41,12 +44,15 @@ export function SelectedPlayerContextProvider(props) {
     if (res[1]){
       setCurrentPlayer({'name':`${player['firstName']} ${player['lastName']} ${player['suffix']}`, 'data':getting})
     }
-    if (goal['id'] == getting['id']){
+    if (goal['data']['id'] == getting['id']){
+      //complete
+      const saveData = {selectedPlayers: selectedPlayers, completed: true}
+      localStorage.setItem(todayKey, JSON.stringify(saveData));
       console.log("got here")
       setCompleted(true)
     }
     else{
-    setSelectedPlayers(selectedPlayers.concat([{...player, result: res}]))
+    setSelectedPlayers(selectedPlayers.concat([{...player, data:getting, result: res}]))
     }
   }
 
@@ -61,9 +67,18 @@ export function SelectedPlayerContextProvider(props) {
     setCurrentPlayer({'name':`${player['firstName']} ${player['lastName']} ${player['suffix']}`, 'data':getting})
   }
 
-  function selectGoalPlayer(player){
-    setGoal(player)
+  async function selectGoalPlayer(player){
+    const route = `/player/${player['id']}`
+    let getting = await (await fetch(`${route}`)).json()
+    console.log('hereasna',player)
+    setGoal({...player, 'data':getting})
+    
   }
+
+  function updateSelectedPlayers(players){
+    setSelectedPlayers(players)
+  }
+  
   
 
   const context = {
@@ -75,7 +90,9 @@ export function SelectedPlayerContextProvider(props) {
     isComplete: completed,
     setGoalPlayer: selectGoalPlayer,
     goalPlayer: goal,
-    curPlayer: currentPlayer
+    curPlayer: currentPlayer,
+    restoreSelectedPlayers: updateSelectedPlayers,
+    makeComplete: ()=>{setCompleted(true)}
   };
 
   return (

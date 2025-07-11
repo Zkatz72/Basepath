@@ -4,7 +4,7 @@ const fs = require('fs'); // Import the fs module
 
 const app = express();
 const url = 'mongodb://localhost:27017';
-const dbName = 'pcreg';
+const dbName = 'bpreg';
 const PORT = process.env.PORT || 3001;
 
 async function main() {
