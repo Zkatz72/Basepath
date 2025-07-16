@@ -19,7 +19,6 @@ import AdbIcon from "@mui/icons-material/Adb";
 import Fade from "@mui/material/Fade";
 import SportsBaseballIcon from "@mui/icons-material/SportsBaseball";
 
-
 import {
   borderRadius,
   fontFamily,
@@ -35,7 +34,7 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isModalOpen, setModalOpen] = React.useState(false);
-  
+
   const handleModalOpen = (event) => {
     setModalOpen(true);
   };
@@ -58,7 +57,7 @@ function ResponsiveAppBar() {
   };
   const theme = useTheme();
 
-  const isDarkMode = theme.palette.mode === 'dark';
+  const isDarkMode = theme.palette.mode === "dark";
   const style = {
     position: "relative",
 
@@ -115,7 +114,7 @@ function ResponsiveAppBar() {
                 sx={{
                   position: "absolute",
                   right: 8,
-                  color: theme.palette.icon.main
+                  color: theme.palette.icon.main,
                 }}
                 aria-label="close"
               >
@@ -125,11 +124,11 @@ function ResponsiveAppBar() {
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
                 sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-                variant="h9"
-                component="h9"
+                variant="h6"
+                component="h6"
               >
-                BasePath is a daily baseball quiz game powered by data provided by Baseball
-                Reference®.
+                BasePath is a daily baseball quiz game powered by data provided
+                by Baseball Reference®.
               </Typography>
             </Box>
             <Box sx={{ paddingBottom: "10px" }}>
@@ -145,23 +144,32 @@ function ResponsiveAppBar() {
               >
                 <u>How to Play</u>
               </Typography>
-            
-            <Typography
-              sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-              variant="h9"
-              component="h9"
-            >
-              The goal of BasePath is to travel from one player to another,
-              using only <i>connected</i> players. Two players are{" "}
-              <i>connected</i> if they played together on the same team at any point in their
-              career. <br></br>
-              <br></br>There's no need to name the team they played for; just
-              give us a teammate of the starting player and keep going!
-              Just make sure to enter the goal player's name once you think you're rounding home!
-              <br></br><br/><b><u>Total bases:</u></b> Correct guesses.
-              <br/><b><u>Outs:</u></b> Incorrect guesses.
-              
-            </Typography>
+
+              <Typography
+                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                variant="h6"
+                component="h6"
+              >
+                The goal of BasePath is to travel from one player to another,
+                using only <i>connected</i> players. Two players are{" "}
+                <i>connected</i> if they played together on the same team at any
+                point in their career. <br></br>
+                <br></br>There's no need to name the team they played for; just
+                give us a teammate of the starting player and keep going! Just
+                make sure to enter the goal player's name once you think you're
+                rounding home!
+                <br></br>
+                <br />
+                <b>
+                  <u>Total bases:</u>
+                </b>{" "}
+                Correct guesses.
+                <br />
+                <b>
+                  <u>Outs:</u>
+                </b>{" "}
+                Incorrect guesses.
+              </Typography>
             </Box>
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
@@ -176,32 +184,34 @@ function ResponsiveAppBar() {
               >
                 <u>Notes</u>
               </Typography>
-            
-            <Typography
-              sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-              variant="h9"
-              component="h9"
-            >
-              <ul>
-              <li>
-                Two players are considered <i>teammates</i> if they played for the <b>same team</b> at the <b>same time</b>.
-              </li>
-              <li>
-                It is possible for two players to have never played in a game together and still be considered teammates.
-              </li>
-              
-              </ul>
-              
-            </Typography>
-            <Divider color = {theme.palette.bar.main} sx={{ marginBottom: '10px' }} />
-            <Typography
-              sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-              variant="h9"
-              component="h9"
-            >
-              A new BasePath puzzle is available daily!
-              
-            </Typography>
+
+              <Typography
+                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                variant="h6"
+                component="h6"
+              >
+                <ul>
+                  <li>
+                    Two players are considered <i>teammates</i> if they played
+                    for the <b>same team</b> at the <b>same time</b>.
+                  </li>
+                  <li>
+                    It is possible for two players to have never played in a
+                    game together and still be considered teammates.
+                  </li>
+                </ul>
+              </Typography>
+              <Divider
+                color={theme.palette.bar.main}
+                sx={{ marginBottom: "10px" }}
+              />
+              <Typography
+                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                variant="h6"
+                component="h6"
+              >
+                A new BasePath puzzle is available daily!
+              </Typography>
             </Box>
           </Box>
         </Slide>
@@ -209,12 +219,12 @@ function ResponsiveAppBar() {
       <AppBar
         position="fixed"
         sx={{
-          border:`.1px solid ${theme.palette.bord.main}`,
-          borderBottom:`.1px solid ${theme.palette.bord.main}`,
-          borderRight:'none',
-          borderLeft:'none',
-          borderTop:'none',
-          
+          border: `.1px solid ${theme.palette.bord.main}`,
+          borderBottom: `.1px solid ${theme.palette.bord.main}`,
+          borderRight: "none",
+          borderLeft: "none",
+          borderTop: "none",
+
           bgcolor: theme.palette.primary.main,
           backgroundImage: "none",
           boxShadow: "none",
@@ -223,16 +233,20 @@ function ResponsiveAppBar() {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box
-  component="img"
-  src={isDarkMode?"dmIcon.svg":"lmIcon.svg"}
-  alt="My Icon"
-  sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, width: 64, height: 64 }}
-/>
+              component="img"
+              src={isDarkMode ? "dmIcon.svg" : "lmIcon.svg"}
+              alt="My Icon"
+              sx={{
+                display: { xs: "none", md: "flex" },
+                mr: 1,
+                width: 64,
+                height: 64,
+              }}
+            />
             <Typography
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -253,20 +267,24 @@ function ResponsiveAppBar() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color= {theme.palette.icon.main}
+                color={theme.palette.icon.main}
               ></IconButton>
             </Box>
             <Box
-  component="img"
-  src={isDarkMode?"dmIcon.svg":"lmIcon.svg"}
-  alt="My Icon"
-  sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width: 60, height: 60 }}
-/>
+              component="img"
+              src={isDarkMode ? "dmIcon.svg" : "lmIcon.svg"}
+              alt="My Icon"
+              sx={{
+                display: { xs: "flex", md: "none" },
+                mr: 1,
+                width: 60,
+                height: 60,
+              }}
+            />
             <Typography
               variant="h5"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },
@@ -286,7 +304,7 @@ function ResponsiveAppBar() {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="How to play">
                 <IconButton onClick={handleModalOpen} sx={{ p: 0 }}>
-                  <InfoOutlinedIcon sx={{ color:theme.palette.icon.main}} />
+                  <InfoOutlinedIcon sx={{ color: theme.palette.icon.main }} />
                 </IconButton>
               </Tooltip>
             </Box>

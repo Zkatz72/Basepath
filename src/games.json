@@ -1,0 +1,1607 @@
+[
+  {
+    "start": "lee---001dyl",
+    "end": "lawren000jus",
+    "optimal": 3
+  },
+  {
+    "start": "utley-002cha",
+    "end": "sax---001ste",
+    "optimal": 3
+  },
+  {
+    "start": "soler-000jor",
+    "end": "walker002chr",
+    "optimal": 3
+  },
+  {
+    "start": "bryant001kri",
+    "end": "ramire014jos",
+    "optimal": 3
+  },
+  {
+    "start": "chapma001aro",
+    "end": "ramire001han",
+    "optimal": 3
+  },
+  {
+    "start": "martin005jul",
+    "end": "dobbs-001gre",
+    "optimal": 3
+  },
+  {
+    "start": "allen-003nic",
+    "end": "boyer-002ken",
+    "optimal": 5
+  },
+  {
+    "start": "miles-001aar",
+    "end": "gourri000yul",
+    "optimal": 3
+  },
+  {
+    "start": "abreu-009jos",
+    "end": "kemp--001mat",
+    "optimal": 3
+  },
+  {
+    "start": "schwar001kyl",
+    "end": "carrol000cor",
+    "optimal": 3
+  },
+  {
+    "start": "mcgee-003wil",
+    "end": "delacr000bry",
+    "optimal": 4
+  },
+  {
+    "start": "india-000joh",
+    "end": "baez--000jav",
+    "optimal": 3
+  },
+  {
+    "start": "simmon002and",
+    "end": "mclout001nat",
+    "optimal": 3
+  },
+  {
+    "start": "rendon001ant",
+    "end": "izturi001ces",
+    "optimal": 3
+  },
+  {
+    "start": "taylor011mic",
+    "end": "ohoppe000log",
+    "optimal": 3
+  },
+  {
+    "start": "diaz--015ale",
+    "end": "arenad001nol",
+    "optimal": 3
+  },
+  {
+    "start": "rojas-003mig",
+    "end": "brenna008wil",
+    "optimal": 3
+  },
+  {
+    "start": "burger000jak",
+    "end": "harris006wil",
+    "optimal": 3
+  },
+  {
+    "start": "bregma001ale",
+    "end": "sogard001eri",
+    "optimal": 3
+  },
+  {
+    "start": "schuma001jar",
+    "end": "thomas002ale",
+    "optimal": 3
+  },
+  {
+    "start": "suzuki001kur",
+    "end": "robins001fra",
+    "optimal": 4
+  },
+  {
+    "start": "altuve001jos",
+    "end": "rodrig009fra",
+    "optimal": 3
+  },
+  {
+    "start": "garcia001avi",
+    "end": "wallac003tim",
+    "optimal": 4
+  },
+  {
+    "start": "robert009dav",
+    "end": "inciar001end",
+    "optimal": 3
+  },
+  {
+    "start": "willin001jos",
+    "end": "harris006jos",
+    "optimal": 3
+  },
+  {
+    "start": "sizemo001gra",
+    "end": "eaton-002ada",
+    "optimal": 3
+  },
+  {
+    "start": "wilson007ste",
+    "end": "hillen001she",
+    "optimal": 4
+  },
+  {
+    "start": "cesped000yoe",
+    "end": "duvall001ada",
+    "optimal": 3
+  },
+  {
+    "start": "aparic001lui",
+    "end": "hentge000sam",
+    "optimal": 5
+  },
+  {
+    "start": "kimbre001cra",
+    "end": "frelic000sal",
+    "optimal": 3
+  },
+  {
+    "start": "short-000zac",
+    "end": "castro001jas",
+    "optimal": 3
+  },
+  {
+    "start": "descal001dan",
+    "end": "rivera000emm",
+    "optimal": 3
+  },
+  {
+    "start": "navarr001dio",
+    "end": "brock-001lou",
+    "optimal": 4
+  },
+  {
+    "start": "harper002bry",
+    "end": "jay---001jon",
+    "optimal": 3
+  },
+  {
+    "start": "bonifa001emi",
+    "end": "santan001car",
+    "optimal": 3
+  },
+  {
+    "start": "moses-001wal",
+    "end": "mclain000mat",
+    "optimal": 7
+  },
+  {
+    "start": "hicks-001aar",
+    "end": "morel-000chr",
+    "optimal": 3
+  },
+  {
+    "start": "vansly001and",
+    "end": "hosmer001eri",
+    "optimal": 4
+  },
+  {
+    "start": "rodrig013jul",
+    "end": "kessin001don",
+    "optimal": 5
+  },
+  {
+    "start": "carrol005jam",
+    "end": "doyle-000bre",
+    "optimal": 3
+  },
+  {
+    "start": "pena--002car",
+    "end": "hall--001wil",
+    "optimal": 3
+  },
+  {
+    "start": "mancin000tre",
+    "end": "overba001lyl",
+    "optimal": 3
+  },
+  {
+    "start": "clark-007wil",
+    "end": "kepler001max",
+    "optimal": 4
+  },
+  {
+    "start": "calhou001kol",
+    "end": "garcia000mai",
+    "optimal": 3
+  },
+  {
+    "start": "viento000mar",
+    "end": "sandli000nic",
+    "optimal": 3
+  },
+  {
+    "start": "bartel003ric",
+    "end": "perkin000bla",
+    "optimal": 7
+  },
+  {
+    "start": "devers000raf",
+    "end": "mousta001mik",
+    "optimal": 3
+  },
+  {
+    "start": "witt--005rob",
+    "end": "caball003jos",
+    "optimal": 3
+  },
+  {
+    "start": "megill000tre",
+    "end": "wong--001kol",
+    "optimal": 3
+  },
+  {
+    "start": "herrer014jos",
+    "end": "nevin-000tyl",
+    "optimal": 3
+  },
+  {
+    "start": "jansen001ken",
+    "end": "rojas-001joh",
+    "optimal": 3
+  },
+  {
+    "start": "robert002bri",
+    "end": "tovar-000eze",
+    "optimal": 4
+  },
+  {
+    "start": "barmes001cli",
+    "end": "rosari000ame",
+    "optimal": 3
+  },
+  {
+    "start": "torkel000spe",
+    "end": "sandov001pab",
+    "optimal": 3
+  },
+  {
+    "start": "gordon000nic",
+    "end": "doval-000cam",
+    "optimal": 3
+  },
+  {
+    "start": "alvare006fra",
+    "end": "morris001log",
+    "optimal": 3
+  },
+  {
+    "start": "mathis001jef",
+    "end": "reese-001har",
+    "optimal": 5
+  },
+  {
+    "start": "span--001kei",
+    "end": "podsed001sco",
+    "optimal": 3
+  },
+  {
+    "start": "bautis001jos",
+    "end": "castro001sta",
+    "optimal": 3
+  },
+  {
+    "start": "applin001luc",
+    "end": "miller005bra",
+    "optimal": 6
+  },
+  {
+    "start": "brunan001tho",
+    "end": "schanu000nol",
+    "optimal": 5
+  },
+  {
+    "start": "gardne001bre",
+    "end": "waner-001pau",
+    "optimal": 6
+  },
+  {
+    "start": "sanche001gar",
+    "end": "johnso001kel",
+    "optimal": 3
+  },
+  {
+    "start": "granda001yas",
+    "end": "grossm002rob",
+    "optimal": 3
+  },
+  {
+    "start": "clemen000kod",
+    "end": "escoba001alc",
+    "optimal": 3
+  },
+  {
+    "start": "dicker001mck",
+    "end": "carpen002mat",
+    "optimal": 3
+  },
+  {
+    "start": "vest--000wil",
+    "end": "castel002nic",
+    "optimal": 3
+  },
+  {
+    "start": "gomes-001jon",
+    "end": "friedl000tj-",
+    "optimal": 3
+  },
+  {
+    "start": "burles000ale",
+    "end": "markak001nic",
+    "optimal": 4
+  },
+  {
+    "start": "hamilt002bil",
+    "end": "walker004rya",
+    "optimal": 3
+  },
+  {
+    "start": "mccorm004cha",
+    "end": "soders000tyl",
+    "optimal": 3
+  },
+  {
+    "start": "cash--001nor",
+    "end": "jackso001aus",
+    "optimal": 5
+  },
+  {
+    "start": "iannet001chr",
+    "end": "vargas005mig",
+    "optimal": 3
+  },
+  {
+    "start": "vernon001jam",
+    "end": "kiner-000isa",
+    "optimal": 5
+  },
+  {
+    "start": "duran-000jho",
+    "end": "wells-001aus",
+    "optimal": 3
+  },
+  {
+    "start": "margot000man",
+    "end": "pedroi001dus",
+    "optimal": 3
+  },
+  {
+    "start": "duran-000eze",
+    "end": "kierma001kev",
+    "optimal": 3
+  },
+  {
+    "start": "lucroy001jon",
+    "end": "bader-000har",
+    "optimal": 3
+  },
+  {
+    "start": "wilson002jac",
+    "end": "pena--002jer",
+    "optimal": 3
+  },
+  {
+    "start": "diaz--000yai",
+    "end": "taylor004chr",
+    "optimal": 3
+  },
+  {
+    "start": "kuhel-001jos",
+    "end": "walker001nei",
+    "optimal": 6
+  },
+  {
+    "start": "nootba000lar",
+    "end": "azocar000jos",
+    "optimal": 3
+  },
+  {
+    "start": "hart--001jon",
+    "end": "crawfo001bra",
+    "optimal": 3
+  },
+  {
+    "start": "stubbs001and",
+    "end": "davis-013cha",
+    "optimal": 3
+  },
+  {
+    "start": "yoshid002mas",
+    "end": "holton000tyl",
+    "optimal": 3
+  },
+  {
+    "start": "sosa--000len",
+    "end": "cain--001lor",
+    "optimal": 3
+  },
+  {
+    "start": "killeb001har",
+    "end": "bogaer001xan",
+    "optimal": 5
+  },
+  {
+    "start": "greene000ril",
+    "end": "laroch001dav",
+    "optimal": 4
+  },
+  {
+    "start": "lewis-002roy",
+    "end": "soto--003jua",
+    "optimal": 3
+  },
+  {
+    "start": "chouri000jac",
+    "end": "romo--001ser",
+    "optimal": 3
+  },
+  {
+    "start": "lind--001ada",
+    "end": "cabrer000osw",
+    "optimal": 3
+  },
+  {
+    "start": "raleig000cal",
+    "end": "busch-002mic",
+    "optimal": 3
+  },
+  {
+    "start": "pucket001kir",
+    "end": "story-000tre",
+    "optimal": 4
+  },
+  {
+    "start": "wieter001mat",
+    "end": "crawfo001car",
+    "optimal": 3
+  },
+  {
+    "start": "mcmill001roy",
+    "end": "headle001cha",
+    "optimal": 4
+  },
+  {
+    "start": "drury-001bra",
+    "end": "baddoo000aki",
+    "optimal": 3
+  },
+  {
+    "start": "infant001oma",
+    "end": "betts-000mar",
+    "optimal": 3
+  },
+  {
+    "start": "crow-a000pet",
+    "end": "delacr000ell",
+    "optimal": 3
+  },
+  {
+    "start": "freese001dav",
+    "end": "reyes-005jos",
+    "optimal": 3
+  },
+  {
+    "start": "willia004bil",
+    "end": "brantl001mic",
+    "optimal": 5
+  },
+  {
+    "start": "ramire005ale",
+    "end": "vierli000mat",
+    "optimal": 3
+  },
+  {
+    "start": "dozier001bri",
+    "end": "cano--000yun",
+    "optimal": 3
+  },
+  {
+    "start": "alonso001yon",
+    "end": "rivas-001alf",
+    "optimal": 3
+  },
+  {
+    "start": "yelich001chr",
+    "end": "choo--001shi",
+    "optimal": 3
+  },
+  {
+    "start": "miller000owe",
+    "end": "duran-000jar",
+    "optimal": 3
+  },
+  {
+    "start": "yepez-000jua",
+    "end": "toglia000mic",
+    "optimal": 3
+  },
+  {
+    "start": "kim---001ha-",
+    "end": "hechav001ade",
+    "optimal": 3
+  },
+  {
+    "start": "sheets000gav",
+    "end": "rortve000ben",
+    "optimal": 3
+  },
+  {
+    "start": "buck--001joh",
+    "end": "anders003tim",
+    "optimal": 3
+  },
+  {
+    "start": "segura001jea",
+    "end": "molina001yad",
+    "optimal": 3
+  },
+  {
+    "start": "hollid001mat",
+    "end": "mays--002wil",
+    "optimal": 5
+  },
+  {
+    "start": "bourjo001pet",
+    "end": "cruz--000one",
+    "optimal": 3
+  },
+  {
+    "start": "mackow001rob",
+    "end": "dejong000pau",
+    "optimal": 3
+  },
+  {
+    "start": "polanc001jor",
+    "end": "hodges001gil",
+    "optimal": 5
+  },
+  {
+    "start": "hoskin000rhy",
+    "end": "gomez-003car",
+    "optimal": 3
+  },
+  {
+    "start": "harris010mic",
+    "end": "monast000and",
+    "optimal": 3
+  },
+  {
+    "start": "villan001jon",
+    "end": "alvare001ped",
+    "optimal": 3
+  },
+  {
+    "start": "philli001bra",
+    "end": "flores003wil",
+    "optimal": 3
+  },
+  {
+    "start": "cowser000col",
+    "end": "pasqua000vin",
+    "optimal": 3
+  },
+  {
+    "start": "lemahi001dj-",
+    "end": "foley-000jas",
+    "optimal": 3
+  },
+  {
+    "start": "keleni000jar",
+    "end": "olivo-001mig",
+    "optimal": 3
+  },
+  {
+    "start": "cruz--002nel",
+    "end": "powell011joh",
+    "optimal": 4
+  },
+  {
+    "start": "fitzge000tyl",
+    "end": "morela001mit",
+    "optimal": 3
+  },
+  {
+    "start": "young-003del",
+    "end": "foxx--001jam",
+    "optimal": 6
+  },
+  {
+    "start": "duda--001luc",
+    "end": "gibbon001jay",
+    "optimal": 3
+  },
+  {
+    "start": "kendri001how",
+    "end": "andrus001elv",
+    "optimal": 3
+  },
+  {
+    "start": "posey-001bus",
+    "end": "wright002dav",
+    "optimal": 3
+  },
+  {
+    "start": "schnei000dav",
+    "end": "nunez-002edu",
+    "optimal": 3
+  },
+  {
+    "start": "velazq000nel",
+    "end": "galvis001fre",
+    "optimal": 3
+  },
+  {
+    "start": "deaza-001ale",
+    "end": "davis-001khr",
+    "optimal": 3
+  },
+  {
+    "start": "aviles001mic",
+    "end": "uggla-001dan",
+    "optimal": 3
+  },
+  {
+    "start": "wiggin001ty-",
+    "end": "ibanez001and",
+    "optimal": 3
+  },
+  {
+    "start": "swanso001dan",
+    "end": "torres000gle",
+    "optimal": 3
+  },
+  {
+    "start": "clemen004rob",
+    "end": "uribe-002jua",
+    "optimal": 5
+  },
+  {
+    "start": "keith-000col",
+    "end": "cuddye001mic",
+    "optimal": 3
+  },
+  {
+    "start": "bruce-001jay",
+    "end": "hernan002enr",
+    "optimal": 3
+  },
+  {
+    "start": "rivera003jua",
+    "end": "mantle001mic",
+    "optimal": 5
+  },
+  {
+    "start": "ortiz-002joe",
+    "end": "boggs-001wad",
+    "optimal": 5
+  },
+  {
+    "start": "inge--001cha",
+    "end": "stanto003mic",
+    "optimal": 3
+  },
+  {
+    "start": "johnso002chr",
+    "end": "mckenn001rya",
+    "optimal": 3
+  },
+  {
+    "start": "butler000law",
+    "end": "monter001mig",
+    "optimal": 3
+  },
+  {
+    "start": "davis-001raj",
+    "end": "guille001osw",
+    "optimal": 3
+  },
+  {
+    "start": "mattin001don",
+    "end": "valenc001dan",
+    "optimal": 4
+  },
+  {
+    "start": "correa000car",
+    "end": "grichu001ran",
+    "optimal": 3
+  },
+  {
+    "start": "manush001hen",
+    "end": "pinson001vad",
+    "optimal": 4
+  },
+  {
+    "start": "cruz--003fer",
+    "end": "naylor000noa",
+    "optimal": 3
+  },
+  {
+    "start": "beckha001gor",
+    "end": "jones-002gar",
+    "optimal": 3
+  },
+  {
+    "start": "polloc001aj-",
+    "end": "hrbek-001ken",
+    "optimal": 4
+  },
+  {
+    "start": "betanc001yun",
+    "end": "aranda000jon",
+    "optimal": 4
+  },
+  {
+    "start": "wilker001ste",
+    "end": "bailey000pat",
+    "optimal": 4
+  },
+  {
+    "start": "cozart001zac",
+    "end": "bender000ant",
+    "optimal": 3
+  },
+  {
+    "start": "carden001jos",
+    "end": "aybar-001eri",
+    "optimal": 5
+  },
+  {
+    "start": "chapma000mat",
+    "end": "rosari001edd",
+    "optimal": 3
+  },
+  {
+    "start": "zobris001ben",
+    "end": "hamilt004dav",
+    "optimal": 3
+  },
+  {
+    "start": "gonzal001adr",
+    "end": "marte-000ket",
+    "optimal": 3
+  },
+  {
+    "start": "bride-000jon",
+    "end": "bloomq001wil",
+    "optimal": 3
+  },
+  {
+    "start": "murphy003dav",
+    "end": "pages-001and",
+    "optimal": 4
+  },
+  {
+    "start": "adames000wil",
+    "end": "otani-000sho",
+    "optimal": 3
+  },
+  {
+    "start": "bay---001jas",
+    "end": "cronin001jos",
+    "optimal": 6
+  },
+  {
+    "start": "langel000she",
+    "end": "crisp-001cov",
+    "optimal": 3
+  },
+  {
+    "start": "morale001ken",
+    "end": "venabl001wil",
+    "optimal": 3
+  },
+  {
+    "start": "murphy011dan",
+    "end": "youkil001kev",
+    "optimal": 3
+  },
+  {
+    "start": "judge-001aar",
+    "end": "monroe001cra",
+    "optimal": 3
+  },
+  {
+    "start": "call--000ale",
+    "end": "qualls001cha",
+    "optimal": 3
+  },
+  {
+    "start": "izturi001mai",
+    "end": "mccart005jac",
+    "optimal": 3
+  },
+  {
+    "start": "grande001cur",
+    "end": "punto-001nic",
+    "optimal": 3
+  },
+  {
+    "start": "walls-000tay",
+    "end": "goslin001leo",
+    "optimal": 7
+  },
+  {
+    "start": "teahen001mar",
+    "end": "upton-001jus",
+    "optimal": 3
+  },
+  {
+    "start": "volpe-000ant",
+    "end": "belt--001bra",
+    "optimal": 3
+  },
+  {
+    "start": "rizzo-001ant",
+    "end": "schmit000cas",
+    "optimal": 3
+  },
+  {
+    "start": "blanco000dai",
+    "end": "blanco001gre",
+    "optimal": 3
+  },
+  {
+    "start": "waters002dre",
+    "end": "westbu000jor",
+    "optimal": 3
+  },
+  {
+    "start": "moss--001bra",
+    "end": "brooks001hub",
+    "optimal": 4
+  },
+  {
+    "start": "bourn-001mic",
+    "end": "candel000jei",
+    "optimal": 3
+  },
+  {
+    "start": "gregor003mar",
+    "end": "buxton000byr",
+    "optimal": 3
+  },
+  {
+    "start": "hundle001nic",
+    "end": "gonzal009mar",
+    "optimal": 3
+  },
+  {
+    "start": "gonzal002rom",
+    "end": "ozuna-002mar",
+    "optimal": 3
+  },
+  {
+    "start": "pendle001ter",
+    "end": "pop---000zac",
+    "optimal": 4
+  },
+  {
+    "start": "pence-001hun",
+    "end": "swishe001nic",
+    "optimal": 3
+  },
+  {
+    "start": "benson002wil",
+    "end": "julien000edo",
+    "optimal": 3
+  },
+  {
+    "start": "kwan--000ste",
+    "end": "mazero001wil",
+    "optimal": 6
+  },
+  {
+    "start": "maton-000nic",
+    "end": "napoli002mic",
+    "optimal": 3
+  },
+  {
+    "start": "fox---002jac",
+    "end": "revere001ben",
+    "optimal": 5
+  },
+  {
+    "start": "albies000ozh",
+    "end": "peralt001sen",
+    "optimal": 3
+  },
+  {
+    "start": "moreno000gab",
+    "end": "lagare001jua",
+    "optimal": 3
+  },
+  {
+    "start": "wallne000mat",
+    "end": "joyce-001mat",
+    "optimal": 3
+  },
+  {
+    "start": "cabrer001mel",
+    "end": "hairst001sco",
+    "optimal": 3
+  },
+  {
+    "start": "ruiz--003est",
+    "end": "pennin001cli",
+    "optimal": 3
+  },
+  {
+    "start": "willia000luc",
+    "end": "michae001jas",
+    "optimal": 3
+  },
+  {
+    "start": "vazque001chr",
+    "end": "ellsbu001jac",
+    "optimal": 3
+  },
+  {
+    "start": "dyson-001jar",
+    "end": "gorman000nol",
+    "optimal": 3
+  },
+  {
+    "start": "mccann002jam",
+    "end": "berra-001law",
+    "optimal": 5
+  },
+  {
+    "start": "raburn001rya",
+    "end": "neto--000zac",
+    "optimal": 3
+  },
+  {
+    "start": "fielde001pri",
+    "end": "turner000tre",
+    "optimal": 3
+  },
+  {
+    "start": "samuel001jua",
+    "end": "darnau001tra",
+    "optimal": 4
+  },
+  {
+    "start": "bradle000jac",
+    "end": "rowand001aar",
+    "optimal": 3
+  },
+  {
+    "start": "peters002jac",
+    "end": "puig--000yas",
+    "optimal": 3
+  },
+  {
+    "start": "noda--000rya",
+    "end": "zunino001mic",
+    "optimal": 3
+  },
+  {
+    "start": "arcia-000orl",
+    "end": "ryan--001bre",
+    "optimal": 3
+  },
+  {
+    "start": "merrif001whi",
+    "end": "frazie001ada",
+    "optimal": 3
+  },
+  {
+    "start": "torre-001jos",
+    "end": "teixei001mar",
+    "optimal": 4
+  },
+  {
+    "start": "mercer001jor",
+    "end": "rutsch000adl",
+    "optimal": 3
+  },
+  {
+    "start": "maldon001mar",
+    "end": "upton-001mel",
+    "optimal": 3
+  },
+  {
+    "start": "cabrer001asd",
+    "end": "alonso000pet",
+    "optimal": 3
+  },
+  {
+    "start": "lindor000fra",
+    "end": "verdug000ale",
+    "optimal": 3
+  },
+  {
+    "start": "hill--001aar",
+    "end": "lowe--000jos",
+    "optimal": 3
+  },
+  {
+    "start": "carpen000ker",
+    "end": "braun-001rya",
+    "optimal": 3
+  },
+  {
+    "start": "smoak-001jus",
+    "end": "casas-000tri",
+    "optimal": 3
+  },
+  {
+    "start": "maybin001cam",
+    "end": "gomes-001yan",
+    "optimal": 3
+  },
+  {
+    "start": "machad001man",
+    "end": "palaci002jos",
+    "optimal": 3
+  },
+  {
+    "start": "martin004vic",
+    "end": "pagan-002ang",
+    "optimal": 3
+  },
+  {
+    "start": "mirand004jos",
+    "end": "hafner001tra",
+    "optimal": 3
+  },
+  {
+    "start": "gonzal004car",
+    "end": "ruiz--002car",
+    "optimal": 3
+  },
+  {
+    "start": "menese000joe",
+    "end": "barney001dar",
+    "optimal": 4
+  },
+  {
+    "start": "bird--000jak",
+    "end": "snider001edw",
+    "optimal": 6
+  },
+  {
+    "start": "monter000ele",
+    "end": "mastro000mil",
+    "optimal": 3
+  },
+  {
+    "start": "marte-001sta",
+    "end": "atkins001gar",
+    "optimal": 3
+  },
+  {
+    "start": "baty--000bre",
+    "end": "confor001mic",
+    "optimal": 3
+  },
+  {
+    "start": "byrd--001mar",
+    "end": "reynol002mar",
+    "optimal": 3
+  },
+  {
+    "start": "renfro002dus",
+    "end": "frazie001tod",
+    "optimal": 3
+  },
+  {
+    "start": "iglesi001jos",
+    "end": "cantu-001jor",
+    "optimal": 3
+  },
+  {
+    "start": "plouff001tre",
+    "end": "morgan000eli",
+    "optimal": 3
+  },
+  {
+    "start": "edward000xav",
+    "end": "ethier001and",
+    "optimal": 4
+  },
+  {
+    "start": "robins001bro",
+    "end": "mathew002edw",
+    "optimal": 3
+  },
+  {
+    "start": "larnac000tre",
+    "end": "ross--003dav",
+    "optimal": 3
+  },
+  {
+    "start": "cabrer003jos",
+    "end": "stott-000bry",
+    "optimal": 3
+  },
+  {
+    "start": "lopez-001fel",
+    "end": "cepeda001orl",
+    "optimal": 4
+  },
+  {
+    "start": "donald001jos",
+    "end": "meyers000jak",
+    "optimal": 3
+  },
+  {
+    "start": "mornea001jus",
+    "end": "smith-001jos",
+    "optimal": 3
+  },
+  {
+    "start": "escoba001yun",
+    "end": "butler001bil",
+    "optimal": 3
+  },
+  {
+    "start": "trumbo001mar",
+    "end": "gallo-001joe",
+    "optimal": 3
+  },
+  {
+    "start": "polanc001gre",
+    "end": "prado-002mar",
+    "optimal": 3
+  },
+  {
+    "start": "dejesu001dav",
+    "end": "votto-001jos",
+    "optimal": 3
+  },
+  {
+    "start": "hawpe-001bra",
+    "end": "blaloc001han",
+    "optimal": 3
+  },
+  {
+    "start": "outman000jam",
+    "end": "walker000jor",
+    "optimal": 3
+  },
+  {
+    "start": "victor001sha",
+    "end": "ross--001cod",
+    "optimal": 3
+  },
+  {
+    "start": "morse-001mic",
+    "end": "trejo-000ala",
+    "optimal": 3
+  },
+  {
+    "start": "tracy-001cha",
+    "end": "pena--002ant",
+    "optimal": 3
+  },
+  {
+    "start": "gutier002fra",
+    "end": "alou--002fel",
+    "optimal": 5
+  },
+  {
+    "start": "wong--000con",
+    "end": "mauer-001jos",
+    "optimal": 3
+  },
+  {
+    "start": "willia002the",
+    "end": "rasmus001col",
+    "optimal": 6
+  },
+  {
+    "start": "gehrig001hen",
+    "end": "muncy-001max",
+    "optimal": 7
+  },
+  {
+    "start": "hinske001eri",
+    "end": "davis-011wil",
+    "optimal": 4
+  },
+  {
+    "start": "aaron-001hen",
+    "end": "donova002bre",
+    "optimal": 5
+  },
+  {
+    "start": "brujan000vid",
+    "end": "banks-000tan",
+    "optimal": 3
+  },
+  {
+    "start": "isbel-000kyl",
+    "end": "peralt001jho",
+    "optimal": 3
+  },
+  {
+    "start": "fermin000fre",
+    "end": "goodma000hun",
+    "optimal": 4
+  },
+  {
+    "start": "ramos-001wil",
+    "end": "doumit001rya",
+    "optimal": 3
+  },
+  {
+    "start": "lopez-003jav",
+    "end": "amaya-000mig",
+    "optimal": 4
+  },
+  {
+    "start": "hardy-001jam",
+    "end": "ramos-000hel",
+    "optimal": 4
+  },
+  {
+    "start": "kearns001aus",
+    "end": "matsui001hid",
+    "optimal": 3
+  },
+  {
+    "start": "baker-000bry",
+    "end": "johnso001ree",
+    "optimal": 3
+  },
+  {
+    "start": "suzuki001ich",
+    "end": "weeks-001ric",
+    "optimal": 3
+  },
+  {
+    "start": "mcneil000jef",
+    "end": "raley-000luc",
+    "optimal": 3
+  },
+  {
+    "start": "gaetti001gar",
+    "end": "cron--002chr",
+    "optimal": 4
+  },
+  {
+    "start": "heywar001jas",
+    "end": "fairch000stu",
+    "optimal": 3
+  },
+  {
+    "start": "suarez001eug",
+    "end": "slaugh001eno",
+    "optimal": 6
+  },
+  {
+    "start": "freema000tyl",
+    "end": "franco001jef",
+    "optimal": 4
+  },
+  {
+    "start": "vaughn000and",
+    "end": "smith-031jos",
+    "optimal": 3
+  },
+  {
+    "start": "canha-001mar",
+    "end": "strang001dev",
+    "optimal": 3
+  },
+  {
+    "start": "solano001don",
+    "end": "smith-003gar",
+    "optimal": 3
+  },
+  {
+    "start": "odor--002rou",
+    "end": "franco001mai",
+    "optimal": 3
+  },
+  {
+    "start": "melend000mj-",
+    "end": "merril000jac",
+    "optimal": 3
+  },
+  {
+    "start": "perdom000ger",
+    "end": "gonzal003osc",
+    "optimal": 3
+  },
+  {
+    "start": "santo-001ron",
+    "end": "freema002fre",
+    "optimal": 5
+  },
+  {
+    "start": "kotchm001cas",
+    "end": "kinsle001ian",
+    "optimal": 3
+  },
+  {
+    "start": "suzuki001sei",
+    "end": "cavarr002phi",
+    "optimal": 6
+  },
+  {
+    "start": "ashbur001ric",
+    "end": "young-001chr",
+    "optimal": 5
+  },
+  {
+    "start": "wood--009jam",
+    "end": "sanche001fre",
+    "optimal": 4
+  },
+  {
+    "start": "howard001rya",
+    "end": "zimmer002rya",
+    "optimal": 3
+  },
+  {
+    "start": "scott-002geo",
+    "end": "hender000gun",
+    "optimal": 5
+  },
+  {
+    "start": "saltal001jar",
+    "end": "simmon001alo",
+    "optimal": 6
+  },
+  {
+    "start": "chavez002end",
+    "end": "forsyt001log",
+    "optimal": 3
+  },
+  {
+    "start": "marsh-000bra",
+    "end": "panik-000joe",
+    "optimal": 3
+  },
+  {
+    "start": "ellis-001mar",
+    "end": "stower000kyl",
+    "optimal": 4
+  },
+  {
+    "start": "palaci000ric",
+    "end": "butler001bre",
+    "optimal": 4
+  },
+  {
+    "start": "jones-001ada",
+    "end": "fairly001ron",
+    "optimal": 4
+  },
+  {
+    "start": "contre002wil",
+    "end": "rafael001ced",
+    "optimal": 3
+  },
+  {
+    "start": "therio001rya",
+    "end": "barnha001tuc",
+    "optimal": 3
+  },
+  {
+    "start": "franco002wan",
+    "end": "adams-001mat",
+    "optimal": 3
+  },
+  {
+    "start": "trout-001mik",
+    "end": "martin003rus",
+    "optimal": 3
+  },
+  {
+    "start": "jax---000gri",
+    "end": "espino002dan",
+    "optimal": 3
+  },
+  {
+    "start": "schoop001jon",
+    "end": "pham--001tho",
+    "optimal": 3
+  },
+  {
+    "start": "gordon001ale",
+    "end": "lee---000kor",
+    "optimal": 3
+  },
+  {
+    "start": "longor001eva",
+    "end": "diaz--000yan",
+    "optimal": 3
+  },
+  {
+    "start": "gillia001jam",
+    "end": "jung--000jos",
+    "optimal": 6
+  },
+  {
+    "start": "castro001rod",
+    "end": "steer-000spe",
+    "optimal": 3
+  },
+  {
+    "start": "johnso001nic",
+    "end": "clemen000ern",
+    "optimal": 4
+  },
+  {
+    "start": "winn--000mas",
+    "end": "gelof-000zac",
+    "optimal": 4
+  },
+  {
+    "start": "reynol000bry",
+    "end": "ahmed-000nic",
+    "optimal": 3
+  },
+  {
+    "start": "perez-001sal",
+    "end": "fortes000nic",
+    "optimal": 3
+  },
+  {
+    "start": "rodrig001sea",
+    "end": "triolo000jar",
+    "optimal": 3
+  },
+  {
+    "start": "schoen001alb",
+    "end": "suwins000jac",
+    "optimal": 6
+  },
+  {
+    "start": "drew--001ste",
+    "end": "santia001ram",
+    "optimal": 3
+  },
+  {
+    "start": "sandbe001ryn",
+    "end": "stepha000tre",
+    "optimal": 4
+  },
+  {
+    "start": "taylor004ant",
+    "end": "davis-003chr",
+    "optimal": 5
+  },
+  {
+    "start": "realmu001jac",
+    "end": "loney-001jam",
+    "optimal": 3
+  },
+  {
+    "start": "peders001joc",
+    "end": "myers-006wil",
+    "optimal": 3
+  },
+  {
+    "start": "nixon-001oti",
+    "end": "cramer001rog",
+    "optimal": 5
+  },
+  {
+    "start": "mccutc001and",
+    "end": "werth-001jay",
+    "optimal": 3
+  },
+  {
+    "start": "langfo000wya",
+    "end": "schuem000max",
+    "optimal": 3
+  },
+  {
+    "start": "gehrin001cha",
+    "end": "eckste001dav",
+    "optimal": 6
+  },
+  {
+    "start": "musial001sta",
+    "end": "turner001jus",
+    "optimal": 5
+  },
+  {
+    "start": "happ--000ian",
+    "end": "mcgehe001cas",
+    "optimal": 3
+  },
+  {
+    "start": "herrer001odu",
+    "end": "figgin001des",
+    "optimal": 3
+  },
+  {
+    "start": "bleday000jef",
+    "end": "everet001jef",
+    "optimal": 4
+  },
+  {
+    "start": "turang002bri",
+    "end": "gourri000lou",
+    "optimal": 3
+  },
+  {
+    "start": "massey001mic",
+    "end": "mcmaho000rya",
+    "optimal": 3
+  },
+  {
+    "start": "gagne-001gre",
+    "end": "young-001jac",
+    "optimal": 4
+  },
+  {
+    "start": "scott-001luk",
+    "end": "mccove001wil",
+    "optimal": 4
+  },
+  {
+    "start": "lopez-000ott",
+    "end": "crawfo000jp-",
+    "optimal": 3
+  },
+  {
+    "start": "fry---002dav",
+    "end": "scutar001mar",
+    "optimal": 4
+  },
+  {
+    "start": "benint000and",
+    "end": "callas001alb",
+    "optimal": 3
+  },
+  {
+    "start": "bellin000cod",
+    "end": "blackm002cha",
+    "optimal": 3
+  },
+  {
+    "start": "seager001cor",
+    "end": "lowrie001jed",
+    "optimal": 3
+  },
+  {
+    "start": "carter001jos",
+    "end": "lange-000ale",
+    "optimal": 4
+  },
+  {
+    "start": "marisn001jac",
+    "end": "horton002wil",
+    "optimal": 5
+  },
+  {
+    "start": "abreu-002wil",
+    "end": "valbue001lui",
+    "optimal": 3
+  },
+  {
+    "start": "pillar000kev",
+    "end": "spring001geo",
+    "optimal": 3
+  },
+  {
+    "start": "torrea001yor",
+    "end": "jones-000nol",
+    "optimal": 3
+  },
+  {
+    "start": "ludwic001rya",
+    "end": "philli001kei",
+    "optimal": 3
+  }
+]

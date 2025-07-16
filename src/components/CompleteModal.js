@@ -44,7 +44,7 @@ function CompleteModal(props) {
   );
   const goalName = `${props.goalPlayer["firstName"]} ${props.goalPlayer["lastName"]} ${props.goalPlayer["suffix"]}`;
   const startName = `${props.startPlayer["firstName"]} ${props.startPlayer["lastName"]} ${props.startPlayer["suffix"]}`;
-  console.log("im v here");
+
   const totalBases = selectedPlayers.filter((element, index, array) => {
     return element["result"][0] == true;
   }).length;
@@ -132,8 +132,8 @@ function CompleteModal(props) {
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
                 sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-                variant="h9"
-                component="h9"
+                variant="h6"
+                component="h6"
               >
                 You successfully connected{" "}
                 <Box component="span" sx={{ fontWeight: "bold" }}>
@@ -150,8 +150,8 @@ function CompleteModal(props) {
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
                 sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-                variant="h9"
-                component="h9"
+                variant="h6"
+                component="h6"
               >
                 {`You did it in ${selectedPlayers.length} total bases!`}
               </Typography>
@@ -172,8 +172,8 @@ function CompleteModal(props) {
             </Box>
             <Typography
               sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-              variant="h9"
-              component="h9"
+              variant="h6"
+              component="h6"
             >
               <Box
                 sx={{

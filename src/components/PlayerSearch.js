@@ -23,7 +23,7 @@ function PlayerSearch(props) {
       // Check if click is outside the div referenced by ref
       if (ref.current && !ref.current.contains(event.target)) {
         setListVisible(false);
-        setFocused(false)
+        setFocused(false);
         setSuggestions([]);
       }
     }
@@ -36,7 +36,7 @@ function PlayerSearch(props) {
       document.removeEventListener("mousedown", handleClick);
     };
   }, []);
-  
+
   function searchSubmit(event) {
     event.preventDefault();
   }
@@ -50,8 +50,8 @@ function PlayerSearch(props) {
   const showList = () => setListVisible(true);
   const hideList = () => {
     setListVisible(false);
-    setQuery("")
-    setFocused(false)
+    setQuery("");
+    setFocused(false);
     scroller.scrollTo("search-section", {
       duration: 50,
       smooth: true,
@@ -73,7 +73,6 @@ function PlayerSearch(props) {
     const invalidCharsRegex = /[\\\^\$\*\+\?\.\(\)\|\[\]\{\}]/g;
 
     text = text.replace(invalidCharsRegex, " ");
-    console.log(text)
     const regex = new RegExp(`^${text}`, "i");
 
     let res = [];
@@ -84,11 +83,11 @@ function PlayerSearch(props) {
     }
 
     let p = [];
-    let f = props.fTrie.getWithPrefix(text.toLowerCase())
-    
-    let l = props.lTrie.getWithPrefix(text.toLowerCase())
-    let n = props.nTrie.getWithPrefix(text.toLowerCase())
-    let s = props.sTrie.getWithPrefix(text.toLowerCase())
+    let f = props.fTrie.getWithPrefix(text.toLowerCase());
+
+    let l = props.lTrie.getWithPrefix(text.toLowerCase());
+    let n = props.nTrie.getWithPrefix(text.toLowerCase());
+    let s = props.sTrie.getWithPrefix(text.toLowerCase());
     /*
     for (let f in props.players) {
       p.push(props.players[f]);
@@ -107,15 +106,16 @@ function PlayerSearch(props) {
       seen.add(key);
       return true;
     });
-    res.sort((a,b)=>(b["endYear"] - b["startYear"]) - (a["endYear"] - a["startYear"]))
-    res = res.slice(0, 50)
-    res.sort((a,b)=>(b['startYear']-a['startYear']))
+    res.sort(
+      (a, b) => b["endYear"] - b["startYear"] - (a["endYear"] - a["startYear"])
+    );
+    res = res.slice(0, 50);
+    res.sort((a, b) => b["startYear"] - a["startYear"]);
     setSuggestions(res.slice(0, 50));
-    
   }
 
   return (
-    <div ref = {ref} className={classes.container}>
+    <div ref={ref} className={classes.container}>
       <div id="search-section" className={classes.searchContainer}>
         <form onSubmit={searchSubmit} className={classes.form}>
           <div className="input-group">
@@ -124,60 +124,60 @@ function PlayerSearch(props) {
                 style={{
                   backgroundColor: theme.palette.primary.main,
                   borderRight: "none",
-                  borderColor:theme.palette.bord.main,
+                  borderColor: theme.palette.bord.main,
                   borderBottomLeftRadius: "0px",
                 }}
-                class="input-group-text no-right-border"
+                className="input-group-text no-right-border"
                 id="basic-addon2"
               >
-                <SearchIcon sx={{color: theme.palette.icon.main }} />
+                <SearchIcon sx={{ color: theme.palette.icon.main }} />
               </span>
             ) : (
               <span
                 style={{
                   borderRight: "none",
-                  borderColor:theme.palette.bord.main,
+                  borderColor: theme.palette.bord.main,
                   backgroundColor: theme.palette.primary.main,
                   color: theme.palette.icon.main,
                 }}
-                class="input-group-text no-right-border"
+                className="input-group-text no-right-border"
                 id="basic-addon2"
               >
                 <SearchIcon />
               </span>
             )}
             {isFocused && (
-        <div
-          style={{
-            content: "''",
-            position: "absolute",
-            top: "0px",
-            right: "0px",
-            bottom: "0px",
-            left: "1px",
-            borderRadius: "6px",
-            boxShadow: `
+              <div
+                style={{
+                  content: "''",
+                  position: "absolute",
+                  top: "0px",
+                  right: "0px",
+                  bottom: "0px",
+                  left: "1px",
+                  borderRadius: "6px",
+                  boxShadow: `
               4px 0 10px rgba(0, 123, 255, 0.6),
               0 -4px 10px rgba(0, 123, 255, 0.6),
               0 4px 10px rgba(0, 123, 255, 0.6)
             `,
-            zIndex: 0,
-            pointerEvents: "none",
-            background: "transparent",
-          }}
-        />
-      )}
+                  zIndex: 0,
+                  pointerEvents: "none",
+                  background: "transparent",
+                }}
+              />
+            )}
             <input
               type="text"
-              value = {query}
+              value={query}
               style={{
                 backgroundColor: theme.palette.primary.main,
                 color: theme.palette.bord.main,
                 borderLeft: "none",
-                paddingLeft: '0px',
-                boxShadow: 'none',
-                outline: 'none',
-                outlineColor:theme.palette.bord.main,
+                paddingLeft: "0px",
+                boxShadow: "none",
+                outline: "none",
+                outlineColor: theme.palette.bord.main,
                 borderColor: theme.palette.bord.main,
               }}
               className={`form-control no-outline rounded-top rounded-start-0 ${
@@ -187,11 +187,10 @@ function PlayerSearch(props) {
               }  `}
               placeholder="Search Player"
               onChange={handleChange}
-              onFocus={(e) => {showList(); setFocused(true)}}
-              
-            
-  
-
+              onFocus={(e) => {
+                showList();
+                setFocused(true);
+              }}
             />
           </div>
           {suggestions.length > 0 && isListVisible && (

@@ -15,6 +15,7 @@ import BottomAppBar from "./components/BottomBar";
 import { ThemeProvider } from '@mui/material/styles';
 import {darkTheme, lightTheme} from './components/ui/theme'
 import Trie from "./structures/Trie";
+import games from './games.json'
 const start = 'trout-001mik'
 const end = 'otani-000sho'
 function App() {
@@ -22,19 +23,30 @@ function App() {
   //const [curPlayer, setCurPlayer] = useState(new Object);
   //const [curPlayer2, setCurPlayer2] = useState(new Object);
   //const
-  const [startPlayer, setStartPlayer] = useState(Object)
-  const [endPlayer, setEndPlayer] = useState(Object)
+const startDate = new Date('2025-7-16'); // YYYY-MM-DD format
+
+
+  const [startPlayer, setStartPlayer] = useState(null)
+  const [endPlayer, setEndPlayer] = useState(null)
   const [dataReal, setData] = useState(null)
   const [dataReal2, setData2] = useState(null)
   const [teammateRes, setTeammateRes] = useState(null)
-  
+  console.log('here')
   useLayoutEffect(() => {
     document.body.style.backgroundColor = '#000'
 });
   useEffect(() => {
     // Simulate data loading from the JSON file
-    
+    const today = new Date();
+    console.log('here2')
+    const diffInMs = today - startDate;
+    const daysPassed = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     setPlayers(data);
+    const todaysGame = games[daysPassed]
+    setStartPlayer(todaysGame['start'])
+    setEndPlayer(todaysGame['end'])
+    
+
     //console.log(curPlayer.id)
   }, []);
   useEffect(() => {
@@ -50,6 +62,10 @@ function App() {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setDarkMode(prefersDarkMode);
   }, []);
+  
+
+
+
   /*
   function fetchData(route){
     
@@ -106,6 +122,7 @@ function App() {
       return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
   let firstTrie = new Trie();
+  
   let lastTrie = new Trie();
   let fullNameTrie = new Trie();
   let suffixTrie = new Trie();
@@ -127,15 +144,28 @@ function App() {
   const theme = darkMode ? darkTheme : lightTheme;
   return (
 
-    <ThemeProvider theme = {theme}>
-    <Layout >
-      <ResponsiveAppBar>
-      </ResponsiveAppBar>
-      <MainScreen nTrie = {fullNameTrie} sTrie = {suffixTrie} fTrie ={firstTrie} lTrie = {lastTrie}  players={players} curPlayer = {data['otani-000sho']} goalPlayer = {data['trout-001mik']}/>
-      <BottomAppBar></BottomAppBar>
+  <ThemeProvider theme={theme}>
+    <Layout>
+      <ResponsiveAppBar />
+
+      {(startPlayer !== null && endPlayer !== null) ? (
+        <MainScreen
+          nTrie={fullNameTrie}
+          sTrie={suffixTrie}
+          fTrie={firstTrie}
+          lTrie={lastTrie}
+          players={players}
+          curPlayer={data[startPlayer]}
+          goalPlayer={data[endPlayer]}
+        />
+      ) : (
+        <div>Loading...</div> // optional loading indicator
+      )}
+
+      <BottomAppBar />
     </Layout>
-    </ThemeProvider>
-  );
+  </ThemeProvider>
+);
 }
 
 export default App;

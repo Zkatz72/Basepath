@@ -12,6 +12,7 @@ import { useTheme } from "@mui/material";
 import PlayerCard from "./PlayerCard";
 import CompleteModal from "./CompleteModal";
 import Button from "@mui/material/Button";
+import { Slide } from "@mui/material";
 let guesses = 4;
 function MainScreen(props) {
   const {
@@ -25,39 +26,43 @@ function MainScreen(props) {
     setGoalPlayer,
     curPlayer,
   } = useContext(SelectedPlayerContext);
-  
+  const goalPlayerName = `${props.goalPlayer["firstName"]} ${props.goalPlayer["lastName"]} ${props.goalPlayer["suffix"]}`
   const curPlayerName = `${props.curPlayer["firstName"]} ${props.curPlayer["lastName"]} ${props.curPlayer["suffix"]}`;
   const [tick, setTick] = useState(0);
   const [showingModal, setShowingModal] = useState(false);
-  const todayKey = new Date().toISOString().split('T')[0];
-  const stored = JSON.parse(localStorage.getItem(todayKey) || '{}');
+  const todayKey = new Date().toISOString().split("T")[0];
+  const stored = JSON.parse(localStorage.getItem(todayKey) || "{}");
   const wasCompleted = stored.completed === true;
   useLayoutEffect(() => {
-      document.body.style.backgroundColor = theme.palette.primary.main
+    document.body.style.backgroundColor = theme.palette.primary.main;
   });
-  
+
   const forceRerender = () => {
-    setShowingModal(true)
+    setShowingModal(true);
     setTick((prev) => prev + 1); // triggers rerender
   };
-  console.log(selectedPlayers);
-  console.log(isComplete);
   useEffect(() => {
     setPrevPlayer(props.curPlayer);
     setGoalPlayer(props.goalPlayer);
-    const pastData = JSON.parse(localStorage.getItem(todayKey))
-    console.log('over here')
-    if (pastData){
-      makeComplete(true)
-      restoreSelectedPlayers(JSON.parse(localStorage.getItem(todayKey))['selectedPlayers'])
+    const pastData = JSON.parse(localStorage.getItem(todayKey));
+    if (pastData) {
+      makeComplete(true);
+      restoreSelectedPlayers(
+        JSON.parse(localStorage.getItem(todayKey))["selectedPlayers"]
+      );
     }
   }, []);
   const theme = useTheme();
-  console.log(theme)
-  const isDarkMode = theme.palette.mode === 'dark';
+  const isDarkMode = theme.palette.mode === "dark";
   return (
     <>
-      {isComplete && <CompleteModal goalPlayer={props.goalPlayer} startPlayer = {props.curPlayer} key={tick}></CompleteModal>}
+      {isComplete && (
+        <CompleteModal
+          goalPlayer={props.goalPlayer}
+          startPlayer={props.curPlayer}
+          key={tick}
+        ></CompleteModal>
+      )}
       <Box minHeight="100vh" height="100%" bgcolor={theme.palette.primary.main}>
         <Toolbar></Toolbar>
         <Box
@@ -66,8 +71,8 @@ function MainScreen(props) {
             width: "100%",
             p: 0,
             flexGrow: 1,
-            
-            borderBottom:`none`,
+
+            borderBottom: `none`,
             zIndex: 1000,
             display: "flex", // ✅ Add this
             flexDirection: "row",
@@ -83,13 +88,11 @@ function MainScreen(props) {
               flex: 1,
               border: `.1px solid ${theme.palette.bord.main}`,
               borderLeft: "none",
-              borderTop:'none',
+              borderTop: "none",
               borderRight: "none",
-              
             }}
           >
-            <Typography sx = {{color:theme.palette.text.main}}>
-            
+            <Typography sx={{ color: theme.palette.text.main }}>
               Total bases:{" "}
               {
                 selectedPlayers.filter((element, index, array) => {
@@ -98,21 +101,20 @@ function MainScreen(props) {
               }
             </Typography>
           </Box>
-          
-          <Box sx = {{width:'.1px'}}bgcolor={theme.palette.bord.main}></Box>
+
+          <Box sx={{ width: ".1px" }} bgcolor={theme.palette.bord.main}></Box>
           <Box
             sx={{
               p: 2,
               flex: 1,
               border: `.1px solid ${theme.palette.bord.main}`,
               borderRight: "none",
-              borderTop:'none',
-              borderLeft:'none',
-              zIndex:2000
+              borderTop: "none",
+              borderLeft: "none",
+              zIndex: 2000,
             }}
           >
-            <Typography sx = {{color:theme.palette.text.main}}>
-            
+            <Typography sx={{ color: theme.palette.text.main }}>
               Total Outs:{" "}
               {
                 selectedPlayers.filter((element, index, array) => {
@@ -133,24 +135,60 @@ function MainScreen(props) {
             img={props.curPlayer["id"]}
           ></PlayerCard>
         </div>
-        <Divider variant="middle" color={theme.palette.bar.main}  />
+        <Divider variant="middle" color={theme.palette.bar.main} />
         <div className={classes.results}>
           {selectedPlayers.map((player, index) => {
-            console.log("here", player["data"]["img"]);
+            const isLast = index === selectedPlayers.length - 1;
             return (
               <div>
-                <ResultCard
-                  player={{
-                    name: `${player["firstName"]} ${player["lastName"]} ${player["suffix"]}`,
-                  }}
-                  img={player["data"]["img"]}
-                  result={player["result"]}
-                ></ResultCard>
+                {isLast && !isComplete ? (
+                  player["result"][0] == false ? (
+                    <Slide
+                      direction={index % 2 ? "right" : "left"}
+                      in={true}
+                      timeout={400}
+                    >
+                      <div className={classes.shake}>
+                        <ResultCard
+                          player={{
+                            name: `${player["firstName"]} ${player["lastName"]} ${player["suffix"]}`,
+                          }}
+                          img={player["data"]["img"]}
+                          result={player["result"]}
+                        />
+                      </div>
+                    </Slide>
+                  ) : (
+                    <Slide
+                      direction={index % 2 ? "right" : "left"}
+                      in={true}
+                      timeout={400}
+                    >
+                      <div>
+                        <ResultCard
+                          player={{
+                            name: `${player["firstName"]} ${player["lastName"]} ${player["suffix"]}`,
+                          }}
+                          img={player["data"]["img"]}
+                          result={player["result"]}
+                        />
+                      </div>
+                    </Slide>
+                  )
+                ) : (
+                  <ResultCard
+                    player={{
+                      name: `${player["firstName"]} ${player["lastName"]} ${player["suffix"]}`,
+                    }}
+                    img={player["data"]["img"]}
+                    result={player["result"]}
+                  ></ResultCard>
+                )}
                 <Divider
                   variant="middle"
                   color={theme.palette.bar.main}
                   flexItem
-                  height="10px" 
+                  height="10px"
                   f
                 />
               </div>
@@ -169,7 +207,12 @@ function MainScreen(props) {
                 paddingBottom: "10px",
               }}
             >
-              <Typography width="80%" paddingBottom='10px' color={theme.palette.text.main} align="center">
+              <Typography
+                width="80%"
+                paddingBottom="10px"
+                color={theme.palette.text.main}
+                align="center"
+              >
                 {`Can you name a player who has played with ${
                   curPlayer != null
                     ? curPlayer["name"].trim()
@@ -185,7 +228,7 @@ function MainScreen(props) {
                 players={props.players}
               />
             </Box>
-            <Divider variant="middle" color={theme.palette.bar.main} f />
+            <Divider variant="middle" color={theme.palette.bar.main} />
           </>
         )}
 
@@ -213,10 +256,15 @@ function MainScreen(props) {
               onClick={() => {
                 forceRerender();
               }}
-              sx={{ boxShadow: 'none', marginBottom: '10px', textTransform: "none", fontFamily: "Roboto", ":hover": { color: "primary", boxShadow: 'none'} }}
+              sx={{
+                boxShadow: "none",
+                marginBottom: "10px",
+                textTransform: "none",
+                fontFamily: "Roboto",
+                ":hover": { color: "primary", boxShadow: "none" },
+              }}
               variant="contained"
               color="secondary"
-              
             >
               Summary
             </Button>

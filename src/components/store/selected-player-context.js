@@ -24,11 +24,11 @@ export function SelectedPlayerContextProvider(props) {
   const [goal, setGoal] = useState(null)
 
   async function selectPlayer(player) {
-    console.log('in here')
   
-      
-    const route = `/player/${player['id']}`
-    let getting = await (await fetch(`${route}`)).json()
+    const route = `/indexes/players-${player['id'][0]}.json`
+    let req = await (await fetch(`${route}`)).json()
+    let getting = req[player['id']]
+    console.log(getting)
     let res = null
     if (currentPlayer == null){
       res = [teammate(prevPlayer,getting), `${prevPlayer['firstName']} ${prevPlayer['lastName']} ${prevPlayer['suffix']}`, `${player['firstName']} ${player['lastName']} ${player['suffix']}`]
@@ -39,16 +39,18 @@ export function SelectedPlayerContextProvider(props) {
       
       
     }
-    console.log('yuh', currentPlayer['data'], getting, goal)
     
     if (res[1]){
       setCurrentPlayer({'name':`${player['firstName']} ${player['lastName']} ${player['suffix']}`, 'data':getting})
     }
-    if (goal['data']['id'] == getting['id']){
+    if (goal['data']['reg_id'] == getting['reg_id']){
       //complete
+      
+      console.log("got here")
+      console.log(goal, getting)
       const saveData = {selectedPlayers: selectedPlayers, completed: true}
       localStorage.setItem(todayKey, JSON.stringify(saveData));
-      console.log("got here")
+      
       setCompleted(true)
     }
     else{
@@ -61,16 +63,19 @@ export function SelectedPlayerContextProvider(props) {
     setCurrentPlayer(null)
   }
   async function selectPrevPlayer(player){
-    const route = `/player/${player['id']}`
-    let getting = await (await fetch(`${route}`)).json()
+    const route = `/indexes/players-${player['id'][0]}.json`
+    let req = await (await fetch(`${route}`)).json()
+    let getting = req[player['id']]
+    console.log(getting)
     setPrevPlayer(player)
     setCurrentPlayer({'name':`${player['firstName']} ${player['lastName']} ${player['suffix']}`, 'data':getting})
   }
 
   async function selectGoalPlayer(player){
-    const route = `/player/${player['id']}`
-    let getting = await (await fetch(`${route}`)).json()
-    console.log('hereasna',player)
+    const route = `/indexes/players-${player['id'][0]}.json`
+    let req = await (await fetch(`${route}`)).json()
+    let getting = req[player['id']]
+    console.log(getting)
     setGoal({...player, 'data':getting})
     
   }

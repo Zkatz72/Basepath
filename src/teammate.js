@@ -24,7 +24,6 @@ function anyOverlappingDates(list1, list2) {
 }
 
 function teammate(playerAData, playerBData) {
-    console.log('right here', playerAData, playerBData)
     const ayears = Object.keys(playerAData)
     .filter(key => !isNaN(key) && key.trim() !== '') // keep only numeric keys
     .map(Number);
