@@ -234,7 +234,7 @@ function ResponsiveAppBar() {
           <Toolbar disableGutters>
             <Box
               component="img"
-              src={isDarkMode ? "dmIcon.svg" : "lmIcon.svg"}
+              src={isDarkMode ? "/Basepath/dmIcon.svg" : "/Basepath/lmIcon.svg"}
               alt="My Icon"
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -272,7 +272,7 @@ function ResponsiveAppBar() {
             </Box>
             <Box
               component="img"
-              src={isDarkMode ? "dmIcon.svg" : "lmIcon.svg"}
+              src={isDarkMode ? "/Basepath/dmIcon.svg" : "/Basepath/lmIcon.svg"}
               alt="My Icon"
               sx={{
                 display: { xs: "flex", md: "none" },

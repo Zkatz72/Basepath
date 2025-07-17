@@ -1,45 +1,24 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import CloseIcon from "@mui/icons-material/Close";
 import { Modal } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
-import CancelIcon from "@mui/icons-material/Cancel";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import Fade from "@mui/material/Fade";
-import SportsBaseballIcon from "@mui/icons-material/SportsBaseball";
+
 import {
-  borderRadius,
-  fontFamily,
-  palette,
-  textAlign,
   useTheme,
 } from "@mui/system";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { useContext } from "react";
 import SelectedPlayerContext from "./store/selected-player-context";
-import { PropaneSharp } from "@mui/icons-material";
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function CompleteModal(props) {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isModalOpen, setModalOpen] = React.useState(true);
   const [buttonText, setButtonText] = React.useState(
     "Copy Results For Sharing"
   );
-  const { prevPlayer, selectedPlayers, goalPlayer } = useContext(
+  const { selectedPlayers } = useContext(
     SelectedPlayerContext
   );
   const goalName = `${props.goalPlayer["firstName"]} ${props.goalPlayer["lastName"]} ${props.goalPlayer["suffix"]}`;
@@ -59,9 +38,7 @@ function CompleteModal(props) {
   }
   shareString += "\n" + "⚾️".repeat(selectedPlayers.length);
   shareString += "\n" + `Play ${url}`;
-  const handleModalOpen = (event) => {
-    setModalOpen(true);
-  };
+  
   const handleModalClose = (event) => {
     setModalOpen(false);
   };

@@ -1,14 +1,8 @@
-import classes from "./ResultCard.module.css";
-import { useContext, useState } from "react";
-import SelectedPlayerContext from "./store/selected-player-context";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material";
 function PlayerCard(props) {
-  const { player, selectPlayer, unselectPlayer } = useContext(
-    SelectedPlayerContext
-  );
   const theme = useTheme();
   const isDarkMode = theme.palette.mode === "dark";
   return (
@@ -44,10 +38,10 @@ function PlayerCard(props) {
           }}
           src={
             props.img
-              ? `images/${props.img}.jpg`
+              ? `/Basepath/images/${props.img}.jpg`
               : isDarkMode
-              ? "images/image.png"
-              : "images/image2.png"
+              ? "/Basepath/images/image.png"
+              : "/Basepath/images/image2.png"
           }
           alt="player"
         />

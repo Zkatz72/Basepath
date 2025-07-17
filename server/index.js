@@ -7,6 +7,8 @@ const url = 'mongodb://localhost:27017';
 const dbName = 'bpreg';
 const PORT = process.env.PORT || 3001;
 
+//express api interacting with mongo backend 
+//mongo backend, currently not integrated
 async function main() {
   const client = new MongoClient(url);
 
@@ -14,7 +16,7 @@ async function main() {
     await client.connect();
     const db = client.db(dbName);
     console.log(`Connected to database ${dbName}`);
-
+    //get player at given id
     app.get('/player/:id', async (req, res) => {
       console.log('getting request')
       const playerId = req.params.id;
@@ -32,7 +34,7 @@ async function main() {
         res.status(500).json({ error: 'Internal Server Error' });
       }
     });
-
+    //set up server to listen on PORT 
     app.listen(PORT, () => {
       console.log(`Server listening on ${PORT}`);
     });

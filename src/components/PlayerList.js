@@ -1,5 +1,4 @@
 import PlayerName from "./PlayerName";
-import classes from "./PlayerList.module.css";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/system";
 function PlayerList(props) {

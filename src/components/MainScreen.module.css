@@ -1,31 +1,4 @@
-.body h1 {
-    color: #c96800;
-}
-.results h1{
-    color: #CDCDCD;
-}
-.results li{
-    color: rgb(0, 170, 255);
-}
-
-.customdivider {
-    border: none;          /* Remove default border */
-    height: 2px;          /* Height of the line */
-    background-color: #000000; /* Color of the line */
-    
-    
-         /* Spacing above and below */
-  }
-
-.overlapContainer{
-    background-color: rgb(180, 40, 40);
-    height: 10px;
-}
-.backgroundCont{
-    height: 100%;
-    width: 100%;
-}
-
+/*Shake animation shown when an incorrect guess is made*/
 @keyframes shake {
   0% { transform: translateX(0); }
   20% { transform: translateX(-5px); }

@@ -8,7 +8,6 @@ import InfoModal from "./components/modals/InfoModal";
 import PlayerList from "./components/PlayerList";
 import MainScreen from "./components/MainScreen";
 import {teammate} from './teammate'
-import Example from "./components/Example";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import { Toolbar } from "@mui/material";
 import BottomAppBar from "./components/BottomBar";

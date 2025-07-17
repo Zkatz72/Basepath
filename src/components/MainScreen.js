@@ -6,19 +6,15 @@ import { useEffect, useState, useLayoutEffect } from "react";
 import ResultCard from "./ResultCard";
 import { Toolbar, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import theme from "./ui/theme";
 import Divider from "@mui/material/Divider";
 import { useTheme } from "@mui/material";
 import PlayerCard from "./PlayerCard";
 import CompleteModal from "./CompleteModal";
 import Button from "@mui/material/Button";
 import { Slide } from "@mui/material";
-let guesses = 4;
 function MainScreen(props) {
   const {
-    prevPlayer,
     selectedPlayers,
-    selectPlayer,
     restoreSelectedPlayers,
     setPrevPlayer,
     isComplete,
@@ -32,7 +28,6 @@ function MainScreen(props) {
   const [showingModal, setShowingModal] = useState(false);
   const todayKey = new Date().toISOString().split("T")[0];
   const stored = JSON.parse(localStorage.getItem(todayKey) || "{}");
-  const wasCompleted = stored.completed === true;
   useLayoutEffect(() => {
     document.body.style.backgroundColor = theme.palette.primary.main;
   });
@@ -53,7 +48,6 @@ function MainScreen(props) {
     }
   }, []);
   const theme = useTheme();
-  const isDarkMode = theme.palette.mode === "dark";
   return (
     <>
       {isComplete && (
@@ -74,7 +68,7 @@ function MainScreen(props) {
 
             borderBottom: `none`,
             zIndex: 1000,
-            display: "flex", // ✅ Add this
+            display: "flex",
             flexDirection: "row",
             bgcolor: theme.palette.primary.main,
             color: "white",
@@ -136,7 +130,7 @@ function MainScreen(props) {
           ></PlayerCard>
         </div>
         <Divider variant="middle" color={theme.palette.bar.main} />
-        <div className={classes.results}>
+        <div>
           {selectedPlayers.map((player, index) => {
             const isLast = index === selectedPlayers.length - 1;
             return (
@@ -235,7 +229,7 @@ function MainScreen(props) {
         <div id="goal-section">
           <PlayerCard
             player={{
-              name: `${props.goalPlayer["firstName"]} ${props.goalPlayer["lastName"]} ${props.goalPlayer["suffix"]}`,
+              name: `${goalPlayerName}`,
             }}
             img={props.goalPlayer["id"]}
           ></PlayerCard>
