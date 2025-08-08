@@ -11,20 +11,28 @@ const SelectedPlayerContext = createContext({
   goalPlayer: null,
   curPlayer: null,
   restoreSelectedPlayers: ()=>{},
-  makeComplete: () => {}
+  makeComplete: () => {},
+  makeIncomplete: () => {},
+  setPuzzle: () => {},
+  puzzle : null,
+  finalResult:null,
+  setFinalResult: ()=>{}
   
 });
 
 export function SelectedPlayerContextProvider(props) {
-  const todayKey = new Date().toISOString().split('T')[0];
+  
+  
   const [selectedPlayers, setSelectedPlayers] = useState([])
   const [currentPlayer, setCurrentPlayer] = useState(null)
+  const [puzzle, setPuzzle] = useState(null)
+  const [gameResult, setGameResult] = useState(null)
   const [completed, setCompleted] = useState(false)
   const [prevPlayer, setPrevPlayer] = useState(null)
   const [goal, setGoal] = useState(null)
 
   async function selectPlayer(player) {
-  
+    console.log("selec player being called")
     const route = `/Basepath/indexes/players-${player['id'][0]}.json`
     let req = await (await fetch(`${route}`)).json()
     let getting = req[player['id']]
@@ -44,10 +52,18 @@ export function SelectedPlayerContextProvider(props) {
     }
     if (res[0] && teammate(goal['data'], getting)[0]){
       //complete
-      const saveData = {selectedPlayers: selectedPlayers, completed: true}
-      localStorage.setItem(todayKey, JSON.stringify(saveData));
-      
+      console.log('somehow got here')
+      let name = `${player['firstName']} ${player['lastName']} ${player['suffix']}`
+      const goalName = `${goal['firstName']} ${goal['lastName']} ${goal['suffix']}`
+      const finalResult =[...teammate(goal['data'],getting), goalName, name]
+      setGameResult(finalResult)
+      const saveData = {selectedPlayers: selectedPlayers.concat([{...player, data:getting, result: res}]), completed: true, finalResult: finalResult }
+      localStorage.setItem(puzzle, JSON.stringify(saveData));
       setCompleted(true)
+      /* this is code i tried to add to make it so theres a message at the end as well that says what team the players played on together*/
+      
+      
+      
     }
     setSelectedPlayers(selectedPlayers.concat([{...player, data:getting, result: res}]))
     
@@ -90,7 +106,12 @@ export function SelectedPlayerContextProvider(props) {
     goalPlayer: goal,
     curPlayer: currentPlayer,
     restoreSelectedPlayers: updateSelectedPlayers,
-    makeComplete: ()=>{setCompleted(true)}
+    makeComplete: ()=>{setCompleted(true)},
+    makeIncomplete: ()=>{setCompleted(false)},
+    setPuzzleNum: (item)=>{setPuzzle(item)},
+    puzzle:  puzzle,
+    finalResult: gameResult,
+    setFinalResult: (item) => {setGameResult(item)}
   };
 
   return (

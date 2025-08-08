@@ -3,58 +3,65 @@ import logo from "./logo.svg";
 import Layout from "./components/ui/Layout";
 import data from "./players.json";
 import { useContext, useEffect, useState, useLayoutEffect } from "react";
-import PlayerSearch from "./components/PlayerSearch";
-import InfoModal from "./components/modals/InfoModal";
-import PlayerList from "./components/PlayerList";
+import LoadingScreen from "./components/LoadingScreen";
 import MainScreen from "./components/MainScreen";
-import {teammate} from './teammate'
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
-import { Toolbar } from "@mui/material";
 import BottomAppBar from "./components/BottomBar";
 import { ThemeProvider } from '@mui/material/styles';
 import {darkTheme, lightTheme} from './components/ui/theme'
 import Trie from "./structures/Trie";
 import games from './games.json'
-const start = 'trout-001mik'
-const end = 'otani-000sho'
+
 function App() {
   const [players, setPlayers] = useState([]);
-  //const [curPlayer, setCurPlayer] = useState(new Object);
-  //const [curPlayer2, setCurPlayer2] = useState(new Object);
-  //const
-const startDate = new Date('2025-7-16'); // YYYY-MM-DD format
+  
+const startDate = new Date(2025, 5, 11); // YYYY-MM-DD format
 
 
   const [startPlayer, setStartPlayer] = useState(null)
   const [endPlayer, setEndPlayer] = useState(null)
   const [dataReal, setData] = useState(null)
-  const [dataReal2, setData2] = useState(null)
-  const [teammateRes, setTeammateRes] = useState(null)
+  const [darkMode, setDarkMode] = useState(false);
   console.log('here')
-  useLayoutEffect(() => {
-    document.body.style.backgroundColor = '#000'
-});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data/theme loading, or wait for font/theme
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 200); // 1 second delay
+
+    return () => clearTimeout(timer);
+  }, []);
+  
+
+  function swap(){
+    let tmp = startPlayer;
+    setStartPlayer(endPlayer)
+    setEndPlayer(tmp)
+  }
   useEffect(() => {
     // Simulate data loading from the JSON file
     const today = new Date();
-    console.log('here2')
+
+    //const diffInMs = now - startDate;
+    //const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
+    //setPlayers(data);
+    //console.log(Math.floor(diffInMinutes / 2));
+    //console.log('here2')
     const diffInMs = today - startDate;
     const daysPassed = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     setPlayers(data);
     const todaysGame = games[daysPassed]
+    console.log(todaysGame)
     setStartPlayer(todaysGame['start'])
     setEndPlayer(todaysGame['end'])
     
 
     //console.log(curPlayer.id)
   }, []);
-  useEffect(() => {
-    // Simulate data loading from the JSON file
-    
-    //console.log(curPlayer)
-    console.log(dataReal)
-  }, [ dataReal]);
-  const [darkMode, setDarkMode] = useState(false);
+  
+  
 
   // Detect system preference on initial load
   useEffect(() => {
@@ -133,6 +140,7 @@ const startDate = new Date('2025-7-16'); // YYYY-MM-DD format
     let fullName = removeDiacritics(fN.toLowerCase())
     let suffix= removeDiacritics(player['suffix'].toLowerCase())
     
+
     firstTrie.insert(firstName, player)
     lastTrie.insert(lastName, player)
     fullNameTrie.insert(fullName, player)
@@ -141,13 +149,21 @@ const startDate = new Date('2025-7-16'); // YYYY-MM-DD format
     
   }
   const theme = darkMode ? darkTheme : lightTheme;
+  const today = new Date();
+  //const now = new Date()
+  //const diffInMs = now - startDate;
+  //const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
+  
+  const diffInMs = today - startDate;
+  const daysPassed = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+  const num = daysPassed
   return (
 
   <ThemeProvider theme={theme}>
     <Layout>
-      <ResponsiveAppBar />
+      <ResponsiveAppBar puzzle = {num} />
 
-      {(startPlayer !== null && endPlayer !== null) ? (
+      {(!isLoading && startPlayer !== null && endPlayer !== null) ? (
         <MainScreen
           nTrie={fullNameTrie}
           sTrie={suffixTrie}
@@ -156,9 +172,11 @@ const startDate = new Date('2025-7-16'); // YYYY-MM-DD format
           players={players}
           curPlayer={data[startPlayer]}
           goalPlayer={data[endPlayer]}
+          swapper = {swap}
+          puzzle = {`bp-${num}`}
         />
       ) : (
-        <div>Loading...</div> // optional loading indicator
+        <LoadingScreen/> 
       )}
 
       <BottomAppBar />

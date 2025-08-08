@@ -16,7 +16,7 @@ function PlayerList(props) {
           position: "absolute",
           backgroundColor: theme.palette.primary.main,
           width: "80%",
-          border: `1px solid ${theme.palette.bord.main}`,
+          border: `1px solid ${theme.palette.text.main}`,
           paddingTop: "5px",
           paddingBottom: "5px",
           borderTop: 0,

@@ -30,7 +30,7 @@ function CompleteModal(props) {
   const outs = selectedPlayers.filter((element, index, array) => {
     return element["result"][0] == false;
   }).length;
-  const url = "http://fill/this/in.com";
+  const url = new URL('/Basepath', window.location.origin).toString();
   let shareString = `I connected ${startName.trim()} to ${goalName.trim()} on BasePath!\n`;
   shareString += `Total bases: ${totalBases}, Outs: ${outs}.\n`;
   for (let base of selectedPlayers) {
@@ -46,14 +46,16 @@ function CompleteModal(props) {
   const theme = useTheme();
   const style = {
     position: "relative",
-    overflowY: "scroll",
-    width: 400,
-    height: 650,
-    top: "15%",
+
+    maxWidth: 400,
+    maxHeight: 650,
+    width: "90%",
+    height: '80%',
+    top: "10%",
     bgcolor: theme.palette.primary.main,
     boxShadow: 24,
-    borderRadius: 5,
-
+    borderRadius: 2,
+    overflowY: "scroll",
     p: 2,
   };
   return (
@@ -90,7 +92,7 @@ function CompleteModal(props) {
                 variant="h5"
                 component="h5"
               >
-                SAFE!
+                <b>SAFE!</b>
               </Typography>
 
               <IconButton
@@ -109,8 +111,8 @@ function CompleteModal(props) {
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
                 sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-                variant="h6"
-                component="h6"
+                variant="p"
+                component="p"
               >
                 You successfully connected{" "}
                 <Box component="span" sx={{ fontWeight: "bold" }}>
@@ -127,10 +129,10 @@ function CompleteModal(props) {
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
                 sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-                variant="h6"
-                component="h6"
+                variant="p"
+                component="p"
               >
-                {`You did it in ${selectedPlayers.length} total bases!`}
+                {`You did it in ${selectedPlayers.length} total ${selectedPlayers.length == 1 ? "base" : "bases"}!`}
               </Typography>
             </Box>
             <Box sx={{ paddingBottom: "10px" }}>
@@ -149,8 +151,8 @@ function CompleteModal(props) {
             </Box>
             <Typography
               sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
-              variant="h6"
-              component="h6"
+              variant="p"
+              component="p"
             >
               <Box
                 sx={{
@@ -199,6 +201,7 @@ function CompleteModal(props) {
                   marginBottom: "10px",
                   textTransform: "none",
                   fontFamily: "Roboto",
+                  borderRadius: 2,
                   ":hover": { color: "primary", boxShadow: "none" },
                 }}
                 variant="contained"

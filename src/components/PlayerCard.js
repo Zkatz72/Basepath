@@ -30,7 +30,7 @@ function PlayerCard(props) {
       >
         <img
           style={{
-            borderRadius: "20%",
+            borderRadius: '8px',
             width: "100px",
             height: "150px",
             marginTop: "10px",

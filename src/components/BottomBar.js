@@ -15,6 +15,10 @@ export default function BottomAppBar() {
         bottom: "auto",
         bgcolor: theme.palette.secondary.main,
         backgroundImage: "none",
+        border: `1px solid ${theme.palette.bord.main}`,
+        borderLeft: 'none',
+        borderRight: 'none',
+        borderBottom: "none",
         boxShadow: "none",
       }}
     >

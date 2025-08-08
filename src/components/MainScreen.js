@@ -12,6 +12,7 @@ import PlayerCard from "./PlayerCard";
 import CompleteModal from "./CompleteModal";
 import Button from "@mui/material/Button";
 import { Slide } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 function MainScreen(props) {
   const {
     selectedPlayers,
@@ -21,32 +22,40 @@ function MainScreen(props) {
     makeComplete,
     setGoalPlayer,
     curPlayer,
+    setPuzzleNum,
+    finalResult,
+    setFinalResult
   } = useContext(SelectedPlayerContext);
   const goalPlayerName = `${props.goalPlayer["firstName"]} ${props.goalPlayer["lastName"]} ${props.goalPlayer["suffix"]}`
   const curPlayerName = `${props.curPlayer["firstName"]} ${props.curPlayer["lastName"]} ${props.curPlayer["suffix"]}`;
   const [tick, setTick] = useState(0);
   const [showingModal, setShowingModal] = useState(false);
-  const todayKey = new Date().toISOString().split("T")[0];
+  const todayKey = props.puzzle
   const stored = JSON.parse(localStorage.getItem(todayKey) || "{}");
   useLayoutEffect(() => {
     document.body.style.backgroundColor = theme.palette.primary.main;
-  });
-
+    setPuzzleNum(props.puzzle)
+  }, []);
+  
   const forceRerender = () => {
     setShowingModal(true);
     setTick((prev) => prev + 1); // triggers rerender
   };
   useEffect(() => {
+    console.log("rerending jhkjh")
     setPrevPlayer(props.curPlayer);
     setGoalPlayer(props.goalPlayer);
+    console.log(localStorage)
+    console.log(todayKey)
     const pastData = JSON.parse(localStorage.getItem(todayKey));
     if (pastData) {
       makeComplete(true);
+      setFinalResult(JSON.parse(localStorage.getItem(todayKey))["finalResult"])
       restoreSelectedPlayers(
         JSON.parse(localStorage.getItem(todayKey))["selectedPlayers"]
       );
     }
-  }, []);
+  }, [props.curPlayer]);
   const theme = useTheme();
   return (
     <>
@@ -57,72 +66,11 @@ function MainScreen(props) {
           key={tick}
         ></CompleteModal>
       )}
-      <Box minHeight="100vh" height="100%" bgcolor={theme.palette.primary.main}>
-        <Toolbar></Toolbar>
-        <Box
-          component="section"
-          sx={{
-            width: "100%",
-            p: 0,
-            flexGrow: 1,
-
-            borderBottom: `none`,
-            zIndex: 1000,
-            display: "flex",
-            flexDirection: "row",
-            bgcolor: theme.palette.primary.main,
-            color: "white",
-            position: "fixed",
-            textAlign: "center",
-          }}
-        >
-          <Box
-            sx={{
-              p: 2,
-              flex: 1,
-              border: `.1px solid ${theme.palette.bord.main}`,
-              borderLeft: "none",
-              borderTop: "none",
-              borderRight: "none",
-            }}
-          >
-            <Typography sx={{ color: theme.palette.text.main }}>
-              Total bases:{" "}
-              {
-                selectedPlayers.filter((element, index, array) => {
-                  return element["result"][0];
-                }).length
-              }
-            </Typography>
-          </Box>
-
-          <Box sx={{ width: ".1px" }} bgcolor={theme.palette.bord.main}></Box>
-          <Box
-            sx={{
-              p: 2,
-              flex: 1,
-              border: `.1px solid ${theme.palette.bord.main}`,
-              borderRight: "none",
-              borderTop: "none",
-              borderLeft: "none",
-              zIndex: 2000,
-            }}
-          >
-            <Typography sx={{ color: theme.palette.text.main }}>
-              Total Outs:{" "}
-              {
-                selectedPlayers.filter((element, index, array) => {
-                  return element["result"][0] == false;
-                }).length
-              }
-            </Typography>
-          </Box>
-        </Box>
-        <Box component="section" sx={{ p: 2 }}>
-          &nbsp;
-        </Box>
+      <Box  minHeight="100vh" height="100%" bgcolor={theme.palette.primary.main}>
+        
         <div id="starting-player">
           <PlayerCard
+            isGoal = {false}
             player={{
               name: `${props.curPlayer["firstName"]} ${props.curPlayer["lastName"]} ${props.curPlayer["suffix"]}`,
             }}
@@ -138,7 +86,7 @@ function MainScreen(props) {
                 {isLast && !isComplete ? (
                   player["result"][0] == false ? (
                     <Slide
-                      direction={index % 2 ? "right" : "left"}
+                      direction={index % 2 ? "left" : "right"}
                       in={true}
                       timeout={400}
                     >
@@ -183,7 +131,7 @@ function MainScreen(props) {
                   color={theme.palette.bar.main}
                   flexItem
                   height="10px"
-                  f
+                  
                 />
               </div>
             );
@@ -220,26 +168,39 @@ function MainScreen(props) {
                 fTrie={props.fTrie}
                 lTrie={props.lTrie}
                 players={props.players}
+                swapper = {props.swapper}
               />
             </Box>
             <Divider variant="middle" color={theme.palette.bar.main} />
           </>
         )}
 
-        <div id="goal-section">
-          <PlayerCard
+        {!isComplete &&
+        <div style = {{"paddingBottom": "10px"}}id="goal-section">
+          <PlayerCard isGoal = {true}
             player={{
               name: `${goalPlayerName}`,
             }}
             img={props.goalPlayer["id"]}
           ></PlayerCard>
-        </div>
+        </div>}
+        {isComplete &&
+        
+        <div>
+                        <ResultCard
+                          player={{
+                            name: `${goalPlayerName}`,
+                          }}
+                          img={props.goalPlayer['id']}
+                          result={finalResult}
+                        />
+                      </div>
+        }
 
         {isComplete && (
           <Box
             alignItems="center"
             sx={{
-              marginTop: "30px",
               display: "flex",
               flexDirection: "column",
               width: "100%",
@@ -252,9 +213,10 @@ function MainScreen(props) {
               }}
               sx={{
                 boxShadow: "none",
-                marginBottom: "10px",
+                marginBottom: "20px",
                 textTransform: "none",
                 fontFamily: "Roboto",
+                borderRadius: 2,
                 ":hover": { color: "primary", boxShadow: "none" },
               }}
               variant="contained"

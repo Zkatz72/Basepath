@@ -6,10 +6,10 @@ export const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#142433",
+      main: "#0c1824",
     },
     secondary: {
-      main: "#223e58",
+      main: "#132638",
     },
     tertiary: {
       main: "#4C7193",
@@ -39,10 +39,10 @@ export const darkTheme = createTheme({
       main: "#fff",
     },
     bord: {
-      main: "#fff",
+      main: "rgba(255, 255, 255, 0.3)"
     },
     infor: {
-      main: "#808080",
+      main: "#9c9c9c"
     },
   },
 });
@@ -80,7 +80,7 @@ export const lightTheme = createTheme({
       main: "#808080",
     },
     bord: {
-      main: "#000",
+      main: "rgba(0, 0, 0, 0.3)"
     },
     infor: {
       main: "#808080",

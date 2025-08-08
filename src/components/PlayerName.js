@@ -1,16 +1,12 @@
-import classes from "./PlayerName.module.css";
-import { useContext, useState } from "react";
+
+import { useContext } from "react";
 import SelectedPlayerContext from "./store/selected-player-context";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { color, useTheme } from "@mui/system";
-import { styled } from "@mui/material/styles";
+import { useTheme } from "@mui/system";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
-import Fade from "@mui/material/Fade";
-import Divider from "@mui/material/Divider";
-import { Padding } from "@mui/icons-material";
 function PlayerName(props) {
-  const { player, selectPlayer, unselectPlayer } = useContext(
+  const { selectPlayer } = useContext(
     SelectedPlayerContext
   );
   const theme = useTheme();
@@ -26,6 +22,7 @@ function PlayerName(props) {
       backgroundColor: theme.palette.secondary.main,
     },
   };
+  /*
   const BootstrapButton = styled(Button)({
     boxShadow: "none",
     textTransform: "none",
@@ -52,6 +49,7 @@ function PlayerName(props) {
       boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
     },
   });
+  */
   return (
     <>
       <Box sx={namePlate}>
@@ -73,7 +71,7 @@ function PlayerName(props) {
             color: theme.palette.primary.main,
             width: "10%",
             marginRight: "10px",
-            borderRadius: "5px",
+            borderRadius: 2,
             bgcolor: theme.palette.quartenary.main,
             textTransform: "none",
             fontFamily: "Roboto",

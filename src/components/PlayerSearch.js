@@ -1,15 +1,13 @@
 import { useState, useRef } from "react";
-import PlayerName from "./PlayerName";
 import classes from "./PlayerSearch.module.css";
 import PlayerList from "./PlayerList";
 import { useEffect } from "react";
-import { Combobox } from "@headlessui/react";
-import ReactSearchBox from "react-search-box";
 import { scroller } from "react-scroll";
-import Divider from "@mui/material/Divider";
 import SearchIcon from "@mui/icons-material/Search";
 import { useTheme } from "@emotion/react";
-import Trie from "../structures/Trie";
+import { Button, InputBase } from "@mui/material";
+import { useContext } from "react";
+import SelectedPlayerContext from "./store/selected-player-context";
 function PlayerSearch(props) {
   const [suggestions, setSuggestions] = useState([]);
   const searchRef = useRef(null);
@@ -17,7 +15,10 @@ function PlayerSearch(props) {
   const [isListVisible, setListVisible] = useState(false);
   const [isFocused, setFocused] = useState(false);
   const ref = useRef(null);
-
+  const {
+    selectedPlayers,
+    
+  } = useContext(SelectedPlayerContext);
   useEffect(() => {
     function handleClick(event) {
       // Check if click is outside the div referenced by ref
@@ -113,92 +114,110 @@ function PlayerSearch(props) {
     res.sort((a, b) => b["startYear"] - a["startYear"]);
     setSuggestions(res.slice(0, 50));
   }
-
+  //i make a search bar from scratch below...
   return (
+    <>
     <div ref={ref} className={classes.container}>
       <div id="search-section" className={classes.searchContainer}>
-        <form onSubmit={searchSubmit} className={classes.form}>
-          <div className="input-group">
-            {suggestions.length != 0 ? (
-              <span
-                style={{
-                  backgroundColor: theme.palette.primary.main,
-                  borderRight: "none",
-                  borderColor: theme.palette.bord.main,
-                  borderBottomLeftRadius: "0px",
-                }}
-                className="input-group-text no-right-border"
-                id="basic-addon2"
-              >
-                <SearchIcon sx={{ color: theme.palette.icon.main }} />
-              </span>
-            ) : (
-              <span
-                style={{
-                  borderRight: "none",
-                  borderColor: theme.palette.bord.main,
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.icon.main,
-                }}
-                className="input-group-text no-right-border"
-                id="basic-addon2"
-              >
-                <SearchIcon />
-              </span>
-            )}
-            {isFocused && (
-              <div
-                style={{
-                  content: "''",
-                  position: "absolute",
-                  top: "0px",
-                  right: "0px",
-                  bottom: "0px",
-                  left: "1px",
-                  borderRadius: "6px",
-                  boxShadow: `
-              4px 0 10px rgba(0, 123, 255, 0.6),
-              0 -4px 10px rgba(0, 123, 255, 0.6),
-              0 4px 10px rgba(0, 123, 255, 0.6)
-            `,
-                  zIndex: 0,
-                  pointerEvents: "none",
-                  background: "transparent",
-                }}
-              />
-            )}
-            <input
-              type="text"
-              value={query}
-              style={{
-                backgroundColor: theme.palette.primary.main,
-                color: theme.palette.bord.main,
-                borderLeft: "none",
-                paddingLeft: "0px",
-                boxShadow: "none",
-                outline: "none",
-                outlineColor: theme.palette.bord.main,
-                borderColor: theme.palette.bord.main,
-              }}
-              className={`form-control no-outline rounded-top rounded-start-0 ${
-                !isListVisible || suggestions.length == 0
-                  ? "rounded-bottom rounded-0"
-                  : "rounded-0"
-              }  `}
-              placeholder="Search Player"
-              onChange={handleChange}
-              onFocus={(e) => {
-                showList();
-                setFocused(true);
-              }}
-            />
-          </div>
-          {suggestions.length > 0 && isListVisible && (
-            <PlayerList players={suggestions} nameClick={hideList} />
-          )}
-        </form>
-      </div>
+       <form onSubmit={searchSubmit} style={{ width: "100%" }}>
+  <div style={{ position: "relative", display: "flex", width: "100%" }}>
+    <div
+      style={{
+        backgroundColor: theme.palette.primary.main,
+        border: `1px solid ${theme.palette.text.main}`,
+        borderRight: "none",
+        display: "flex",
+        alignItems: "center",
+        padding: "0 12px",
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius:
+          !isListVisible || suggestions.length === 0 ? 8 : 0,
+        height: 40,
+      }}
+    >
+      <SearchIcon sx={{ color: theme.palette.bord.main }} />
     </div>
+
+    <InputBase
+      value={query}
+      placeholder="Search..."
+      onChange={handleChange}
+      onFocus={() => {
+        showList();
+        setFocused(true);
+      }}
+      sx={{
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.text.main,
+        border: `1px solid ${theme.palette.text.main}`,
+        borderLeft: "none",
+        pl: 1,
+        pr: 1,
+        height: 40,
+        fontSize: "1rem",
+        borderTopRightRadius: 8,
+        borderBottomRightRadius:
+          !isListVisible || suggestions.length === 0 ? 8 : 0,
+        width: "100%",
+        "&::placeholder": {
+          color: theme.palette.infor.main,
+        },
+      }}
+    />
+
+    {isFocused && (
+      <div
+        style={{
+          content: "''",
+          position: "absolute",
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          borderRadius: 8,
+          borderBottomRightRadius:
+          !isListVisible || suggestions.length === 0 ? 8 : 0,
+          borderBottomLeftRadius:
+          !isListVisible || suggestions.length === 0 ? 8 : 0,
+          boxShadow: `
+            4px 0 10px rgba(0, 123, 255, 0.6),
+            0 -4px 10px rgba(0, 123, 255, 0.6),
+            0 4px 10px rgba(0, 123, 255, 0.6)
+          `,
+          zIndex: 0,
+          pointerEvents: "none",
+          background: "transparent",
+        }}
+      />
+    )}
+  </div>
+
+  {suggestions.length > 0 && isListVisible && (
+    <PlayerList players={suggestions} nameClick={hideList} />
+  )}
+</form>
+      </div>
+
+      
+    </div>
+    {selectedPlayers.length == 0 &&
+    <Button
+              onClick={props.swapper
+              }
+              sx={{
+                boxShadow: "none",
+                marginBottom: "10px",
+                textTransform: "none",
+                fontFamily: "Roboto",
+                borderRadius: 2,
+                ":hover": { color: "primary", boxShadow: "none" },
+              }}
+              variant="contained"
+              color="secondary"
+            >
+              Swap players
+            </Button>}
+      </>
   );
 }
 
