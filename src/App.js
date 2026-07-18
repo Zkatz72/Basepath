@@ -46,9 +46,7 @@ const startDate = new Date(2026, 6, 18); // YYYY-MM-DD format
     const diffInMs = today - startDate;
     const daysPassed = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     setPlayers(data);
-    console.log(daysPassed)
     const todaysGame = games[daysPassed % games.length]
-    console.log(todaysGame)
     setStartPlayer(todaysGame['start'])
     setEndPlayer(todaysGame['end'])
     
