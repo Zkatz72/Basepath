@@ -38,7 +38,7 @@ function PlayerCard(props) {
           }}
           src={
             props.img
-              ? `/Basepath/images/${props.img}.jpg`
+              ? `/Basepath/images/${isDarkMode ? "image" : "image2"}.png`
               : isDarkMode
               ? "/Basepath/images/image.png"
               : "/Basepath/images/image2.png"

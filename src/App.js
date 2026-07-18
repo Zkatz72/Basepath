@@ -15,14 +15,14 @@ import games from './games.json'
 function App() {
   const [players, setPlayers] = useState([]);
   
-const startDate = new Date(2025, 5, 11); // YYYY-MM-DD format
+const startDate = new Date(2026, 7, 18); // YYYY-MM-DD format
 
 
   const [startPlayer, setStartPlayer] = useState(null)
   const [endPlayer, setEndPlayer] = useState(null)
   const [dataReal, setData] = useState(null)
   const [darkMode, setDarkMode] = useState(false);
-  console.log('here')
+  
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -43,16 +43,10 @@ const startDate = new Date(2025, 5, 11); // YYYY-MM-DD format
   useEffect(() => {
     // Simulate data loading from the JSON file
     const today = new Date();
-
-    //const diffInMs = now - startDate;
-    //const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
-    //setPlayers(data);
-    //console.log(Math.floor(diffInMinutes / 2));
-    //console.log('here2')
     const diffInMs = today - startDate;
     const daysPassed = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     setPlayers(data);
-    const todaysGame = games[daysPassed]
+    const todaysGame = games[daysPassed % games.length]
     console.log(todaysGame)
     setStartPlayer(todaysGame['start'])
     setEndPlayer(todaysGame['end'])
