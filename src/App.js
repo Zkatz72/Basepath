@@ -15,7 +15,7 @@ import games from './games.json'
 function App() {
   const [players, setPlayers] = useState([]);
   
-const startDate = new Date(2026, 7, 18); // YYYY-MM-DD format
+const startDate = new Date(2026, 6, 18); // YYYY-MM-DD format
 
 
   const [startPlayer, setStartPlayer] = useState(null)
@@ -46,6 +46,7 @@ const startDate = new Date(2026, 7, 18); // YYYY-MM-DD format
     const diffInMs = today - startDate;
     const daysPassed = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     setPlayers(data);
+    console.log(daysPassed)
     const todaysGame = games[daysPassed % games.length]
     console.log(todaysGame)
     setStartPlayer(todaysGame['start'])
