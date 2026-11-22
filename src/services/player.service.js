@@ -1,19 +1,9 @@
 import { supabase } from "./supabaseClient";
 
 export async function getPlayers(search = "") {
-  let query = supabase
-    .from("player")
-    .select("id, reg_id, first_name, last_name, suffix, start_year, end_year")
-    .order("last_name", { ascending: true })
-    .order("first_name", { ascending: true })
-    .limit(100);
-
-  if (search) {
-    const safe = search.replace(/[,()]/g, ""); // syntax-significant in PostgREST's .or()
-    query = query.or(`first_name.ilike.%${safe}%,last_name.ilike.%${safe}%`);
-  }
-
-  const { data, error } = await query;
+  const { data, error } = await supabase.rpc("search_players", {
+    search: search.trim(),
+  });
 
   if (error) {
     throw new Error("Failed to fetch players");
