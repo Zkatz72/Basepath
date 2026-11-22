@@ -74,12 +74,11 @@ function ResponsiveAppBar(props) {
     maxWidth: 400,
     maxHeight: 650,
     width: "90%",
-    height: "55%",
     top: "10%",
     bgcolor: theme.palette.primary.main,
     boxShadow: 24,
     borderRadius: 2,
-    overflowY: "scroll",
+    overflowY: "auto",
     p: 2,
   };
 
@@ -124,7 +123,7 @@ function ResponsiveAppBar(props) {
 
       
       {stat: "Avg. Outs", val: isNaN(avgOuts) ? "∞" : avgOuts },
-      {stat: "Avg. Total Bases", val: isNaN(avgTotalBases) ? "∞" : avgOuts},
+      {stat: "Avg. Total Bases", val: isNaN(avgTotalBases) ? "∞" : avgTotalBases},
       {stat: 'Current Streak', val : currentStreak},
       {stat: 'Games Played', val : totalGamesPlayed}
     ];
@@ -160,7 +159,7 @@ function ResponsiveAppBar(props) {
                 sx={{
                   textAlign: "center",
                   color: theme.palette.text.main,
-                  fontFamily: "Roboto",
+                  fontFamily: "Inter",
                 }}
                 id="modal-modal-title"
                 variant="h5"
@@ -184,7 +183,7 @@ function ResponsiveAppBar(props) {
             </Box>
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
-                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                sx={{ color: theme.palette.text.main, fontFamily: "Inter" }}
                 variant="p"
                 component="p"
               >
@@ -197,7 +196,7 @@ function ResponsiveAppBar(props) {
                 sx={{
                   textAlign: "center",
                   color: theme.palette.text.main,
-                  fontFamily: "Roboto",
+                  fontFamily: "Inter",
                   paddingBottom: "10px"
                 }}
                 id="modal-modal-title"
@@ -208,7 +207,7 @@ function ResponsiveAppBar(props) {
               </Typography>
 
               <Typography
-                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                sx={{ color: theme.palette.text.main, fontFamily: "Inter" }}
                 variant="p"
                 component="p"
               >
@@ -236,7 +235,7 @@ function ResponsiveAppBar(props) {
                 sx={{
                   textAlign: "center",
                   color: theme.palette.text.main,
-                  fontFamily: "Roboto",
+                  fontFamily: "Inter",
                   paddingBottom: "10px"
                 }}
                 id="modal-modal-title"
@@ -247,7 +246,7 @@ function ResponsiveAppBar(props) {
               </Typography>
 
               <Typography
-                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                sx={{ color: theme.palette.text.main, fontFamily: "Inter" }}
                 variant="p"
                 component="p"
               >
@@ -301,7 +300,7 @@ function ResponsiveAppBar(props) {
                 sx={{
                   textAlign: "center",
                   color: theme.palette.text.main,
-                  fontFamily: "Roboto",
+                  fontFamily: "Inter",
                 }}
                 id="modal-modal-title"
                 variant="h5"
@@ -333,14 +332,14 @@ function ResponsiveAppBar(props) {
                 }}
               >
                 <Typography
-                  sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                  sx={{ color: theme.palette.text.main, fontFamily: "Inter" }}
                   variant="h2"
                   component="h2"
                 >
                   {item.val}
                 </Typography>
                 <Typography
-                  sx={{ color: theme.palette.infor.main, fontFamily: "Roboto" }}
+                  sx={{ color: theme.palette.infor.main, fontFamily: "Inter" }}
                   variant="p"
                   component="p"
                 >
@@ -418,7 +417,7 @@ function ResponsiveAppBar(props) {
                   mr: 2,
                   display: { xs: "flex", md: "flex" },
 
-                  fontFamily: "Roboto",
+                  fontFamily: "Inter",
                   fontWeight: 700,
                   letterSpacing: "0rem",
                   color: "inherit",
@@ -497,6 +496,7 @@ function ResponsiveAppBar(props) {
             Total bases:{" "}
             {
               selectedPlayers.filter((element, index, array) => {
+                console.log('yo', element)
                 return element["result"][0];
               }).length
             }

@@ -51,7 +51,7 @@ function PlayerCard(props) {
             textAlign: "center",
             color: theme.palette.text.main,
             paddingTop: ".3rem",
-            fontFamily: "Roboto",
+            fontFamily: "Inter",
           }}
         >
           {props.player["name"]}
