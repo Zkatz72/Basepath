@@ -1,5 +1,6 @@
 import { createContext, useState } from 'react';
 import { teammate } from '../../teammate';
+import { getTeammates } from '../../services/player.service';
 const SelectedPlayerContext = createContext({
   selectedPlayers: [],
   prevPlayer: null,
@@ -32,60 +33,72 @@ export function SelectedPlayerContextProvider(props) {
   const [goal, setGoal] = useState(null)
 
   async function selectPlayer(player) {
-    console.log("selec player being called")
-    const route = `/Basepath/indexes/players-${player['id'][0]}.json`
-    let req = await (await fetch(`${route}`)).json()
-    let getting = req[player['id']]
-    let res = null
-    if (currentPlayer == null){
-      res = [teammate(prevPlayer,getting), `${prevPlayer['firstName']} ${prevPlayer['lastName']} ${prevPlayer['suffix']}`, `${player['firstName']} ${player['lastName']} ${player['suffix']}`]
-    }
-    else{
-      let name = `${player['firstName']} ${player['lastName']} ${player['suffix']}`
-      res = [...teammate(currentPlayer['data'],getting), currentPlayer['name'], name]
-      
-      
-    }
-    
-    if (res[1]){
-      setCurrentPlayer({'name':`${player['firstName']} ${player['lastName']} ${player['suffix']}`, 'data':getting})
-    }
-    if (res[0] && teammate(goal['data'], getting)[0]){
-      //complete
-      console.log('somehow got here')
-      let name = `${player['firstName']} ${player['lastName']} ${player['suffix']}`
-      const goalName = `${goal['firstName']} ${goal['lastName']} ${goal['suffix']}`
-      const finalResult =[...teammate(goal['data'],getting), goalName, name]
-      setGameResult(finalResult)
-      const saveData = {selectedPlayers: selectedPlayers.concat([{...player, data:getting, result: res}]), completed: true, finalResult: finalResult }
+    console.log(player)
+  const playerName = `${player.first_name} ${player.last_name} ${player.suffix ?? ""}`.trim();
+
+  const previous = currentPlayer ?? {
+    name: `${prevPlayer.first_name} ${prevPlayer.last_name} ${prevPlayer.suffix ?? ""}`.trim(),
+    data: prevPlayer,
+  };
+
+  try {
+    // Check if the selected player is teammates with the previous player
+    const result = await getTeammates(previous.data.id, player.id);
+    const sharedTeamName = result.areTeammates
+      ? result.sharedTeams[0]["full_name"]
+      : null;
+    const someResult = [result.areTeammates, sharedTeamName, previous.name, playerName];
+
+    setCurrentPlayer({
+      name: playerName,
+      data: player,
+    });
+
+    // Check if the selected player is teammates with the goal player
+    const finalResult = await getTeammates(goal.id, player.id);
+
+    if (finalResult.areTeammates) {
+      const finalTeamName = finalResult.sharedTeams[0]["full_name"];
+      const completionResult = [result.areTeammates, finalTeamName, playerName, goal];
+      setGameResult(completionResult);
+      const saveData = {
+        selectedPlayers: [
+          ...selectedPlayers,
+          { ...player, result: someResult },
+        ],
+        completed: true,
+        finalResult: completionResult,
+      };
+
       localStorage.setItem(puzzle, JSON.stringify(saveData));
-      setCompleted(true)
-      /* this is code i tried to add to make it so theres a message at the end as well that says what team the players played on together*/
-      
-      
-      
+      setCompleted(true);
     }
-    setSelectedPlayers(selectedPlayers.concat([{...player, data:getting, result: res}]))
-    
+
+    setSelectedPlayers((prev) => [
+      ...prev,
+      { ...player, result: someResult },
+    ]);
+  } catch (err) {
+    console.error("Failed to check teammates:", err);
   }
+}
 
   function unselectPlayer() {
     setSelectedPlayers([])
     setCurrentPlayer(null)
   }
   async function selectPrevPlayer(player){
-    const route = `/Basepath/indexes/players-${player['id'][0]}.json`
-    let req = await (await fetch(`${route}`)).json()
-    let getting = req[player['id']]
+    console.log(
+      'herey',
+      player
+    )
     setPrevPlayer(player)
-    setCurrentPlayer({'name':`${player['firstName']} ${player['lastName']} ${player['suffix']}`, 'data':getting})
+    setCurrentPlayer({'name':`${player['first_name']} ${player['last_name']} ${player['suffix']}`, 'data':player})
   }
 
   async function selectGoalPlayer(player){
-    const route = `/Basepath/indexes/players-${player['id'][0]}.json`
-    let req = await (await fetch(`${route}`)).json()
-    let getting = req[player['id']]
-    setGoal({...player, 'data':getting})
+    
+    setGoal(player)
     
   }
 

@@ -8,6 +8,7 @@ import { useTheme } from "@emotion/react";
 import { Button, InputBase } from "@mui/material";
 import { useContext } from "react";
 import SelectedPlayerContext from "./store/selected-player-context";
+import { getPlayers } from "../services/player.service";
 function PlayerSearch(props) {
   const [suggestions, setSuggestions] = useState([]);
   const searchRef = useRef(null);
@@ -15,10 +16,29 @@ function PlayerSearch(props) {
   const [isListVisible, setListVisible] = useState(false);
   const [isFocused, setFocused] = useState(false);
   const ref = useRef(null);
+  const [players, setPlayers] = useState([])
+  const [loadig, setLoading] = useState(false)
   const {
     selectedPlayers,
     
   } = useContext(SelectedPlayerContext);
+async function loadPlayers() {
+      try {
+        const data = await getPlayers();
+
+        setPlayers(data);
+        console.log(data)
+      } catch (err) {
+        console.error("Failed to load players:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+  useEffect(() => {
+    
+
+    loadPlayers();
+  }, []);
   useEffect(() => {
     function handleClick(event) {
       // Check if click is outside the div referenced by ref
@@ -61,8 +81,13 @@ function PlayerSearch(props) {
     setSuggestions([]);
   };
   useEffect(() => {
-    updateSuggestions();
-  }, [query]);
+  const fetchSuggestions = async () => {
+    const suggestions = await getPlayers(query);
+    setSuggestions(suggestions);
+  };
+
+  fetchSuggestions();
+}, [query]);
   const theme = useTheme();
   async function updateSuggestions() {
     /*

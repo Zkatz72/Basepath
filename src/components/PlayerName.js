@@ -57,7 +57,7 @@ function PlayerName(props) {
           <Box sx={{ color: theme.palette.text.main }}>
             {props.name}
             <Box sx={{ fontSize: ".8rem", color: theme.palette.infor.main }}>
-              {`${props.player["startYear"]}-${props.player["endYear"]}`}
+              {`${props.player["start_year"]}-${props.player["end_year"]}`}
             </Box>
           </Box>
         </Box>

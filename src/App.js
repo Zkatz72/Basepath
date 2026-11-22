@@ -1,21 +1,22 @@
 import logo from "./logo.svg";
 //import './App.css';
-import Layout from "./components/ui/Layout";
+import Layout from "./components/ui/Layout.js";
 import data from "./players.json";
 import { useContext, useEffect, useState, useLayoutEffect } from "react";
-import LoadingScreen from "./components/LoadingScreen";
-import MainScreen from "./components/MainScreen";
-import ResponsiveAppBar from "./components/ResponsiveAppBar";
-import BottomAppBar from "./components/BottomBar";
+import LoadingScreen from "./components/LoadingScreen.js";
+import MainScreen from "./components/MainScreen.js";
+import ResponsiveAppBar from "./components/ResponsiveAppBar.js";
+import BottomAppBar from "./components/BottomBar.js";
 import { ThemeProvider } from '@mui/material/styles';
-import {darkTheme, lightTheme} from './components/ui/theme'
-import Trie from "./structures/Trie";
+import {darkTheme, lightTheme} from './components/ui/theme.js'
+import Trie from "./structures/Trie.js";
 import games from './games.json'
+import { getPlayerByRegId } from "./services/player.service.js";
 
 function App() {
   const [players, setPlayers] = useState([]);
   
-const startDate = new Date(2026, 6, 18); // YYYY-MM-DD format
+const startDate = new Date(2026, 6, 19); // YYYY-MM-DD format
 
 
   const [startPlayer, setStartPlayer] = useState(null)
@@ -41,18 +42,31 @@ const startDate = new Date(2026, 6, 18); // YYYY-MM-DD format
     setEndPlayer(tmp)
   }
   useEffect(() => {
-    // Simulate data loading from the JSON file
+  async function loadData() {
     const today = new Date();
     const diffInMs = today - startDate;
-    const daysPassed = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-    setPlayers(data);
-    const todaysGame = games[daysPassed % games.length]
-    setStartPlayer(todaysGame['start'])
-    setEndPlayer(todaysGame['end'])
-    
+    const daysPassed = Math.floor(
+      diffInMs / (1000 * 60 * 60 * 24)
+    );
 
-    //console.log(curPlayer.id)
-  }, []);
+    setPlayers(data);
+
+    const todaysGame = games[daysPassed % games.length];
+    console.log(todaysGame);
+
+    try {
+      const start = await getPlayerByRegId(todaysGame.start);
+      const end = await getPlayerByRegId(todaysGame.end);
+
+      setStartPlayer(start);
+      setEndPlayer(end);
+    } catch (err) {
+      console.error("Failed to load players:", err);
+    }
+  }
+
+  loadData();
+}, []);
   
   
 
@@ -163,8 +177,8 @@ const startDate = new Date(2026, 6, 18); // YYYY-MM-DD format
           fTrie={firstTrie}
           lTrie={lastTrie}
           players={players}
-          curPlayer={data[startPlayer]}
-          goalPlayer={data[endPlayer]}
+          curPlayer={startPlayer}
+          goalPlayer={endPlayer}
           swapper = {swap}
           puzzle = {`bp-${num}`}
         />

@@ -3,8 +3,9 @@ import Typography from "@mui/material/Typography";
 import PlayerCard from "./PlayerCard";
 import { useTheme } from "@emotion/react";
 function ResultCard(props) {
-  
+  console.log(props.result)
   const [correct, team, cur, checking] = props.result;
+  console.log(correct)
   const theme = useTheme();
   return (
     <PlayerCard isGoal = {false} img={props.img} player={props.player}>

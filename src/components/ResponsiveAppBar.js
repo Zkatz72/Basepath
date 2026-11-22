@@ -497,6 +497,7 @@ function ResponsiveAppBar(props) {
             Total bases:{" "}
             {
               selectedPlayers.filter((element, index, array) => {
+                console.log('yo', element)
                 return element["result"][0];
               }).length
             }

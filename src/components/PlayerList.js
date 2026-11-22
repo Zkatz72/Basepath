@@ -27,7 +27,7 @@ function PlayerList(props) {
             key={item.id}
             player={item}
             click={props.nameClick}
-            name={`${item.firstName} ${item.lastName} ${item.suffix}`}
+            name={`${item.first_name} ${item.last_name} ${item.suffix}`}
           />
         ))}
       </Box>

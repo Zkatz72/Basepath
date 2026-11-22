@@ -26,8 +26,8 @@ function MainScreen(props) {
     finalResult,
     setFinalResult
   } = useContext(SelectedPlayerContext);
-  const goalPlayerName = `${props.goalPlayer["firstName"]} ${props.goalPlayer["lastName"]} ${props.goalPlayer["suffix"]}`
-  const curPlayerName = `${props.curPlayer["firstName"]} ${props.curPlayer["lastName"]} ${props.curPlayer["suffix"]}`;
+  const goalPlayerName = `${props.goalPlayer["first_name"]} ${props.goalPlayer["last_name"]} ${props.goalPlayer["suffix"]}`
+  const curPlayerName = `${props.curPlayer["first_name"]} ${props.curPlayer["last_name"]} ${props.curPlayer["suffix"]}`;
   const [tick, setTick] = useState(0);
   const [showingModal, setShowingModal] = useState(false);
   const todayKey = props.puzzle
@@ -72,9 +72,9 @@ function MainScreen(props) {
           <PlayerCard
             isGoal = {false}
             player={{
-              name: `${props.curPlayer["firstName"]} ${props.curPlayer["lastName"]} ${props.curPlayer["suffix"]}`,
+              name: `${props.curPlayer["first_name"]} ${props.curPlayer["last_name"]} ${props.curPlayer["suffix"]}`,
             }}
-            img={props.curPlayer["id"]}
+            img={props.curPlayer["reg_id"]}
           ></PlayerCard>
         </div>
         <Divider variant="middle" color={theme.palette.bar.main} />
@@ -93,9 +93,9 @@ function MainScreen(props) {
                       <div className={classes.shake}>
                         <ResultCard
                           player={{
-                            name: `${player["firstName"]} ${player["lastName"]} ${player["suffix"]}`,
+                            name: `${player["first_name"]} ${player["last_name"]} ${player["suffix"]}`,
                           }}
-                          img={player["data"]["img"]}
+                          img={player['reg_id']}
                           result={player["result"]}
                         />
                       </div>
@@ -109,9 +109,9 @@ function MainScreen(props) {
                       <div>
                         <ResultCard
                           player={{
-                            name: `${player["firstName"]} ${player["lastName"]} ${player["suffix"]}`,
+                            name: `${player["first_name"]} ${player["last_name"]} ${player["suffix"]}`,
                           }}
-                          img={player["data"]["img"]}
+                          img={player['reg_id']}
                           result={player["result"]}
                         />
                       </div>
@@ -120,9 +120,9 @@ function MainScreen(props) {
                 ) : (
                   <ResultCard
                     player={{
-                      name: `${player["firstName"]} ${player["lastName"]} ${player["suffix"]}`,
+                      name: `${player["first_name"]} ${player["last_name"]} ${player["suffix"]}`,
                     }}
-                    img={player["data"]["img"]}
+                    img={player['reg_id']}
                     result={player["result"]}
                   ></ResultCard>
                 )}
@@ -181,17 +181,17 @@ function MainScreen(props) {
             player={{
               name: `${goalPlayerName}`,
             }}
-            img={props.goalPlayer["id"]}
+            img={props.goalPlayer["reg_id"]}
           ></PlayerCard>
         </div>}
-        {isComplete &&
+        {isComplete && 
         
         <div>
                         <ResultCard
                           player={{
                             name: `${goalPlayerName}`,
                           }}
-                          img={props.goalPlayer['id']}
+                          img={props.goalPlayer['reg_id']}
                           result={finalResult}
                         />
                       </div>
