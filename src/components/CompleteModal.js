@@ -86,7 +86,7 @@ function CompleteModal(props) {
                 sx={{
                   textAlign: "center",
                   color: theme.palette.text.main,
-                  fontFamily: "Roboto",
+                  fontFamily: "Inter",
                 }}
                 id="modal-modal-title"
                 variant="h5"
@@ -110,7 +110,7 @@ function CompleteModal(props) {
             </Box>
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
-                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                sx={{ color: theme.palette.text.main, fontFamily: "Inter" }}
                 variant="p"
                 component="p"
               >
@@ -128,7 +128,7 @@ function CompleteModal(props) {
             </Box>
             <Box sx={{ paddingBottom: "10px" }}>
               <Typography
-                sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+                sx={{ color: theme.palette.text.main, fontFamily: "Inter" }}
                 variant="p"
                 component="p"
               >
@@ -140,7 +140,7 @@ function CompleteModal(props) {
                 sx={{
                   textAlign: "center",
                   color: theme.palette.text.main,
-                  fontFamily: "Roboto",
+                  fontFamily: "Inter",
                 }}
                 id="modal-modal-title"
                 variant="h5"
@@ -150,14 +150,14 @@ function CompleteModal(props) {
               </Typography>
             </Box>
             <Typography
-              sx={{ color: theme.palette.text.main, fontFamily: "Roboto" }}
+              sx={{ color: theme.palette.text.main, fontFamily: "Inter" }}
               variant="p"
               component="p"
             >
               <Box
                 sx={{
                   color: theme.palette.text.main,
-                  fontFamily: "'Roboto', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                 }}
               >
                 <ol style={{ textAlign: "center", paddingLeft: 0 }}>
@@ -200,7 +200,7 @@ function CompleteModal(props) {
                   boxShadow: "none",
                   marginBottom: "10px",
                   textTransform: "none",
-                  fontFamily: "Roboto",
+                  fontFamily: "Inter",
                   borderRadius: 2,
                   ":hover": { color: "primary", boxShadow: "none" },
                 }}

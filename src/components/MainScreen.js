@@ -215,7 +215,7 @@ function MainScreen(props) {
                 boxShadow: "none",
                 marginBottom: "20px",
                 textTransform: "none",
-                fontFamily: "Roboto",
+                fontFamily: "Inter",
                 borderRadius: 2,
                 ":hover": { color: "primary", boxShadow: "none" },
               }}

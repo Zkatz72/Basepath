@@ -74,7 +74,7 @@ function PlayerName(props) {
             borderRadius: 2,
             bgcolor: theme.palette.quartenary.main,
             textTransform: "none",
-            fontFamily: "Roboto",
+            fontFamily: "Inter",
             ":hover": {
               bgcolor: theme.palette.quinary.main,
               boxShadow: "none",

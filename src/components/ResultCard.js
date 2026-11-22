@@ -17,7 +17,7 @@ function ResultCard(props) {
             ? theme.palette.success.main
             : theme.palette.error.main,
           paddingTop: ".3rem",
-          fontFamily: "Roboto",
+          fontFamily: "Inter",
         }}
       >
         {correct ? "Correct!" : "Incorrect!"}

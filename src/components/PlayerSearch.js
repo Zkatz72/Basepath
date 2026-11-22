@@ -233,7 +233,7 @@ async function loadPlayers() {
                 boxShadow: "none",
                 marginBottom: "10px",
                 textTransform: "none",
-                fontFamily: "Roboto",
+                fontFamily: "Inter",
                 borderRadius: 2,
                 ":hover": { color: "primary", boxShadow: "none" },
               }}
